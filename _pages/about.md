@@ -142,11 +142,19 @@ My research interests lie in the general area of data mining and machine learnin
 - Conference Reviewer: ICML2022, SIGIR2022, AAAI2022, AAAI2021, IJCAI2021
 
 ----
-<div class="footer">
+<!-- <div class="footer">
     <div class="row">
           <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=m&d=91g_Uih-7fadH9madF_Vex1LQXOVlduL5aeBBSKXgXA"></script>
     </div>
+</div> -->
+<div class="footer">
+    <div class="row">
+          <a href="https://clustrmaps.com/site/1bf1b" title="Visit tracker"><img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=tt&d=91g_Uih-7fadH9madF_Vex1LQXOVlduL5aeBBSKXgXA&co=2d78ad&ct=ffffff" /></a>
+    </div>
 </div>
+
+
+
 
 ---
 Xiaotian Han
