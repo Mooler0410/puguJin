@@ -149,7 +149,7 @@ My research interests lie in the general area of data mining and machine learnin
 </div> -->
 <div class="footer">
     <div class="row">
-          <a href="https://clustrmaps.com/site/1bf1b" title="Visit tracker"><img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=tt&d=91g_Uih-7fadH9madF_Vex1LQXOVlduL5aeBBSKXgXA&co=2d78ad&ct=ffffff" /></a>
+        <a><img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=m&d=91g_Uih-7fadH9madF_Vex1LQXOVlduL5aeBBSKXgXA&co=2d78ad&ct=ffffff" /></a>
     </div>
 </div>
 
