@@ -66,7 +66,7 @@ My research interests lie in the general area of data mining and machine learnin
 
 - G-Mixup: Graph Augmentation for Graph Classification. [[PDF](https://arxiv.org/abs/2202.07179)] 
   - **Xiaotian Han**, Zhimeng Jiang, Ninghao Liu, Xia Hu.
-  - ICML 2022,  <span style="color:red">Long Presenatation</span>
+  - ICML 2022,  <span style="color:red">Long Presentation</span>
 
 - Generalized Demographic Parity for Group Fairness. [[PDF](https://openreview.net/pdf?id=YigKlMJwjye)] 
   - Zhimeng Jiang, **Xiaotian Han**, Chao Fan, Fan Yang, Ali Mostafavi, Xia Hu.
