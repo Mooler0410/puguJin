@@ -148,7 +148,7 @@ My research interests lie in the general area of data mining and machine learnin
     </div>
 </div> -->
 <div class="footer">
-    <div class="row">
+    <div class="center">
         <a><img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=m&d=91g_Uih-7fadH9madF_Vex1LQXOVlduL5aeBBSKXgXA&co=2d78ad&ct=ffffff" /></a>
     </div>
 </div>
