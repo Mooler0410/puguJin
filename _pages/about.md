@@ -30,9 +30,9 @@ My research interests lie in the general area of data mining and machine learnin
 
 # News
 - *2022.05*: Thrilled to start my summer internship at Snap Inc., work with [Neil Shah](http://nshah.net/). 
-- *2022.05*: One papers accepted by ICML2022. 
-- *2022.01*: One papers accepted by ICLR2022. 
-- *2022.01*: One papers accepted by TheWebConf2022. 
+- *2022.05*: One paper accepted by ICML2022. 
+- *2022.01*: One paper accepted by ICLR2022. 
+- *2022.01*: One paper accepted by TheWebConf2022. 
 
 <!-- # Selected Publications 
 
@@ -66,7 +66,7 @@ My research interests lie in the general area of data mining and machine learnin
 
 - G-Mixup: Graph Augmentation for Graph Classification. [[PDF](https://arxiv.org/abs/2202.07179)] 
   - **Xiaotian Han**, Zhimeng Jiang, Ninghao Liu, Xia Hu.
-  - ICML 2022 (Long Presenatation) 
+  - ICML 2022,  <span style="color:red">Long Presenatation</span>
 
 - Generalized Demographic Parity for Group Fairness. [[PDF](https://openreview.net/pdf?id=YigKlMJwjye)] 
   - Zhimeng Jiang, **Xiaotian Han**, Chao Fan, Fan Yang, Xia Hu.
