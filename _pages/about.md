@@ -69,7 +69,7 @@ My research interests lie in the general area of data mining and machine learnin
   - ICML 2022,  <span style="color:red">Long Presenatation</span>
 
 - Generalized Demographic Parity for Group Fairness. [[PDF](https://openreview.net/pdf?id=YigKlMJwjye)] 
-  - Zhimeng Jiang, **Xiaotian Han**, Chao Fan, Fan Yang, Xia Hu.
+  - Zhimeng Jiang, **Xiaotian Han**, Chao Fan, Fan Yang, Ali Mostafavi, Xia Hu.
   - ICLR 2022 
 
 - Geometric Graph Representation Learning via Maximizing Rate Reduction. [[PDF](https://doi.org/10.1145/3485447.3512170)] [[SLIDES](/files/WWW2022_slides.pdf)]
