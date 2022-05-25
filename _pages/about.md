@@ -72,7 +72,7 @@ My research interests lie in the general area of data mining and machine learnin
   - Zhimeng Jiang, **Xiaotian Han**, Chao Fan, Fan Yang, Ali Mostafavi, Xia Hu.
   - ICLR 2022 
 
-- Geometric Graph Representation Learning via Maximizing Rate Reduction. [[PDF](https://doi.org/10.1145/3485447.3512170)] [[SLIDES](/files/WWW2022_slides.pdf)] [[CODE](https://github.com/ahxt/G2R) ]
+- Geometric Graph Representation Learning via Maximizing Rate Reduction. [[PDF](https://doi.org/10.1145/3485447.3512170)] [[SLIDES](/files/WWW2022_slides.pdf)] [[CODE](https://github.com/ahxt/G2R)]
   - **Xiaotian Han**, Zhimeng Jiang, Ninghao Liu, Qingquan Song, Jundong Li, Xia Hu. 
   - TheWebConf2022
 
