@@ -29,7 +29,8 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # News
-- *2022.05*: Thrilled to start my summer internship at Snap Inc., work with [Neil Shah](http://nshah.net/). 
+- *2022.09*: Thrilled to start my internship at Meta, work with [Qifan Wang](https://wqfcr.github.io/). 
+- *2022.05*: Thrilled to start my internship at Snap Inc., work with [Neil Shah](http://nshah.net/). 
 - *2022.05*: One paper accepted by ICML2022. 
 - *2022.01*: One paper accepted by ICLR2022. 
 - *2022.01*: One paper accepted by TheWebConf2022. 
@@ -112,6 +113,9 @@ My research interests lie in the general area of data mining and machine learnin
 # Internships
 <!-- - *Mar. 2019 - May. 2019*, Microsoft Research Asia, Beijing, China. Hyperparameter Optimization and AutoML.
 - *Jun. 2018 - Sept. 2018*, Alibaba Group, Hangzhou, China. Query recomendataion in Taobao App. -->
+- Snap Research, Seattle, USA. *Mar. 2022 - Aug. 2022*
+  - Research Intern
+  - Graph neural network training acceleration.
 - Microsoft Research Asia, Beijing, China. *Mar. 2019 - May. 2019*
   - Research Intern
   - Hyperparameter Optimization and AutoML.
@@ -133,13 +137,18 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # Awards
+- *2022*, Travel Grant, Texas A&M University, Department of Computer Science & Engineering.
+- *2022*, Travel Award, ICML2022.
+- *2022*, Outstanding Reviewer Award, ICML2022.
 - *2020*, Best Reviewer Award, CCF Transactions on Pervasive Computing and Interaction
 - *2018*, 1st  National Graduate Scholarship, Beijing University of Posts and Telecommunications, Beijing, China.
 - *2017*, 1st  Student Scholarship, Beijing University of Posts and Telecommunications, Beijing, China.
 
 
 # Professional Acitivities
-- Conference Reviewer: ICML2022, SIGIR2022, AAAI2022, AAAI2021, IJCAI2021
+- Session Chair: ICML2022
+- Conference Reviewer: TheWebConf2022, NeurIPS2022, ICML2022, SIGIR2022, AAAI2022, AAAI2021, IJCAI2021
+- Volunteer: ICML2022, NAACL2022
 
 ----
 <!-- <div class="footer">
@@ -147,7 +156,7 @@ My research interests lie in the general area of data mining and machine learnin
           <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=m&d=91g_Uih-7fadH9madF_Vex1LQXOVlduL5aeBBSKXgXA"></script>
     </div>
 </div> -->
-<div class="footer">
+<div class="footer" hidden="hidden">
     <div class="center">
         <a><img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=m&d=91g_Uih-7fadH9madF_Vex1LQXOVlduL5aeBBSKXgXA&co=2d78ad&ct=ffffff" /></a>
     </div>
