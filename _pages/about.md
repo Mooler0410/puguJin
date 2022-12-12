@@ -65,7 +65,7 @@ My research interests lie in the general area of data mining and machine learnin
 <!-- - [****][](). -->
 
 
-- MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization 
+- MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization. [[PDF](https://arxiv.org/pdf/2210.00102.pdf)] 
   - Xiaotian Han, Tong Zhao, Yozen Liu, Xia Hu, Neil Shah
   - Under review, 2022
 
@@ -73,19 +73,19 @@ My research interests lie in the general area of data mining and machine learnin
   - Xiaotian Han, Zhimeng Jiang, Ninghao Liu, Na Zou, Qifan Wang, Xia Hu 
   - Under review, 2022
 
-- Marginal Nodes Matter: Towards Structure Fairness in Graphs
+- Marginal Nodes Matter: Towards Structure Fairness in Graphs.
   - Xiaotian Han, Kaixiong Zhou, Ting-Hsiang Wang, Xiao Huang, Jundong Li, Na Zou, Xia Hu
   - Under review, 2022
 
-- Retiring ∆DP: New Distribution-Level Metrics for Demographic Parity 
+- Retiring ∆DP: New Distribution-Level Metrics for Demographic Parity.
   - Xiaotian Han, Zhimeng Jiang, Hongye Jin, Zirui Liu, Na Zou, Qifan Wang, Xia Hu 
   - Under review, 2022
 
-- Fair Graph Message Passing with Transparency
+- Fair Graph Message Passing with Transparency.
   - Zhimeng Jiang, Xiao􏰀an Han, Chao Fan, Zirui Liu, Na Zou, Ali Mostafavi, Xia Hu 
   - Under review, 2022
 
-- Topology Matters in Fair Graph Learning: a Theore􏰀cal Pilot Study
+- Topology Matters in Fair Graph Learning: a Theoretical Pilot Study.
   - Zhimeng Jiang, Xiaotian Han, Chao Fan, Zirui Liu, Xiao Huang, Na Zou, Ali Mostafavi, Xia Hu 
   - Under review, 2022
 
