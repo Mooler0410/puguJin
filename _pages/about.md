@@ -19,7 +19,7 @@ redirect_from:
 
 Hi there!
 
-I am currently a 3rd-year Ph.D. student in the <a href="https://engineering.tamu.edu/cse/index.html" target="_blank">Department of Computer Science and Engineering</a> at <a href="https://www.tamu.edu" target="_blank">Texas A&M University</a>. I am working at the DATA Lab under the supervision of Prof. <a href="https://cs.rice.edu/~xh37/index.html" target="_blank">Xia (Ben) Hu</a>.
+I am currently a 4th-year Ph.D. student in the <a href="https://engineering.tamu.edu/cse/index.html" target="_blank">Department of Computer Science and Engineering</a> at <a href="https://www.tamu.edu" target="_blank">Texas A&M University</a>. I am working at the DATA Lab under the supervision of Prof. <a href="https://cs.rice.edu/~xh37/index.html" target="_blank">Xia (Ben) Hu</a>.
 
 My research interests lie in the general area of data mining and machine learning.
 
@@ -64,6 +64,30 @@ My research interests lie in the general area of data mining and machine learnin
 - [**ADMA2018**][Anomalous Trajectory Detection Using Recurrent Neural Network](http://shichuan.org/doc/60.pdf). Li Song, Ruijia Wang, Ding Xiao, **Xiaotian Han**, Yanan Cai, Chuan Shi. (<span style="color:red">Best paper award</span>) -->
 <!-- - [****][](). -->
 
+
+- MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization 
+  - Xiaotian Han, Tong Zhao, Yozen Liu, Xia Hu, Neil Shah
+  - Under review, 2022
+
+- Do We Really Achieve Fairness with Explicit Sensitive Atrributes? 
+  - Xiaotian Han, Zhimeng Jiang, Ninghao Liu, Na Zou, Qifan Wang, Xia Hu 
+  - Under review, 2022
+
+- Marginal Nodes Matter: Towards Structure Fairness in Graphs
+  - Xiaotian Han, Kaixiong Zhou, Ting-Hsiang Wang, Xiao Huang, Jundong Li, Na Zou, Xia Hu
+  - Under review, 2022
+
+- Retiring ∆DP: New Distribution-Level Metrics for Demographic Parity 
+  - Xiaotian Han, Zhimeng Jiang, Hongye Jin, Zirui Liu, Na Zou, Qifan Wang, Xia Hu 
+  - Under review, 2022
+
+- Fair Graph Message Passing with Transparency
+  - Zhimeng Jiang, Xiao􏰀an Han, Chao Fan, Zirui Liu, Na Zou, Ali Mostafavi, Xia Hu 
+  - Under review, 2022
+
+- Topology Matters in Fair Graph Learning: a Theore􏰀cal Pilot Study
+  - Zhimeng Jiang, Xiaotian Han, Chao Fan, Zirui Liu, Xiao Huang, Na Zou, Ali Mostafavi, Xia Hu 
+  - Under review, 2022
 
 - G-Mixup: Graph Augmentation for Graph Classification. [[PDF](https://arxiv.org/abs/2202.07179)] 
   - **Xiaotian Han**, Zhimeng Jiang, Ninghao Liu, Xia Hu.
@@ -111,18 +135,21 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # Internships
-<!-- - *Mar. 2019 - May. 2019*, Microsoft Research Asia, Beijing, China. Hyperparameter Optimization and AutoML.
-- *Jun. 2018 - Sept. 2018*, Alibaba Group, Hangzhou, China. Query recomendataion in Taobao App. -->
-- Snap Research, Seattle, USA. *Mar. 2022 - Aug. 2022*
+
+- Meta, Menlo Park, CA.  *Sept. 2022 – present*
+  - Research Intern
+  - Understanding graph neural networks
+  - Work with: [Qifan Wang](https://wqfcr.github.io/)
+- Snap Research, Seattle, WA. *Mar. 2022 - Aug. 2022*
   - Research Intern
   - Graph neural network training acceleration.
+  - Work with:[Neil Shah](http://nshah.net/), [Tong Zhao](https://tzhao.io/), Yozen Liu
 - Microsoft Research Asia, Beijing, China. *Mar. 2019 - May. 2019*
   - Research Intern
   - Hyperparameter Optimization and AutoML.
 - Alibaba Group, Hangzhou, China. *Jun. 2018 - Sept. 2018*
   - Research Intern
   - Query recomendataion in Taobao App.
-
 
 
 # Educations
@@ -147,15 +174,9 @@ My research interests lie in the general area of data mining and machine learnin
 
 # Professional Acitivities
 - Session Chair: ICML2022
-- Conference Reviewer: TheWebConf2022, NeurIPS2022, ICML2022, SIGIR2022, AAAI2022, AAAI2021, IJCAI2021
+- Conference Reviewer: IJCAI2023, TheWebConf2023, ICDM2022, AAAI2023, NeurIPS2022, ICML2022, SIGIR2022, AAAI2022, AAAI2021, IJCAI2021
 - Volunteer: ICML2022, NAACL2022
 
-----
-<!-- <div class="footer">
-    <div class="row">
-          <script type="text/javascript" id="clustrmaps" src="//cdn.clustrmaps.com/map_v2.js?cl=ffffff&w=300&t=m&d=91g_Uih-7fadH9madF_Vex1LQXOVlduL5aeBBSKXgXA"></script>
-    </div>
-</div> -->
 <div class="footer" hidden="hidden">
     <div class="center">
         <a><img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=m&d=91g_Uih-7fadH9madF_Vex1LQXOVlduL5aeBBSKXgXA&co=2d78ad&ct=ffffff" /></a>
@@ -163,9 +184,7 @@ My research interests lie in the general area of data mining and machine learnin
 </div>
 
 
-
-
 ---
-Xiaotian Han
+Last updated on Dec 11, 2022.
 
 
