@@ -66,36 +66,16 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 - MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization. [[PDF](https://arxiv.org/pdf/2210.00102.pdf)] 
-  - Xiaotian Han, Tong Zhao, Yozen Liu, Xia Hu, Neil Shah
-  - Under review, 2022
-
-- Do We Really Achieve Fairness with Explicit Sensitive Atrributes? 
-  - Xiaotian Han, Zhimeng Jiang, Ninghao Liu, Na Zou, Qifan Wang, Xia Hu 
-  - Under review, 2022
-
-- Marginal Nodes Matter: Towards Structure Fairness in Graphs.
-  - Xiaotian Han, Kaixiong Zhou, Ting-Hsiang Wang, Xiao Huang, Jundong Li, Na Zou, Xia Hu
-  - Under review, 2022
-
-- Retiring ∆DP: New Distribution-Level Metrics for Demographic Parity.
-  - Xiaotian Han, Zhimeng Jiang, Hongye Jin, Zirui Liu, Na Zou, Qifan Wang, Xia Hu 
-  - Under review, 2022
-
-- Fair Graph Message Passing with Transparency.
-  - Zhimeng Jiang, Xiao􏰀an Han, Chao Fan, Zirui Liu, Na Zou, Ali Mostafavi, Xia Hu 
-  - Under review, 2022
-
-- Topology Matters in Fair Graph Learning: a Theoretical Pilot Study.
-  - Zhimeng Jiang, Xiaotian Han, Chao Fan, Zirui Liu, Xiao Huang, Na Zou, Ali Mostafavi, Xia Hu 
-  - Under review, 2022
+  - **Xiaotian Han**, Tong Zhao, Yozen Liu, Xia Hu, Neil Shah
+  - ICLR2022, Work done during the internship at Snap Research
 
 - G-Mixup: Graph Augmentation for Graph Classification. [[PDF](https://arxiv.org/abs/2202.07179)] 
   - **Xiaotian Han**, Zhimeng Jiang, Ninghao Liu, Xia Hu.
-  - ICML 2022,  <span style="color:red">Long Presentation</span>
+  - ICML2022,  <span style="color:red">Outstanding Paper Award</span>
 
 - Generalized Demographic Parity for Group Fairness. [[PDF](https://openreview.net/pdf?id=YigKlMJwjye)] 
   - Zhimeng Jiang, **Xiaotian Han**, Chao Fan, Fan Yang, Ali Mostafavi, Xia Hu.
-  - ICLR 2022 
+  - ICLR2022 
 
 - Geometric Graph Representation Learning via Maximizing Rate Reduction. [[PDF](https://doi.org/10.1145/3485447.3512170)] [[SLIDES](/files/WWW2022_slides.pdf)] [[CODE](https://github.com/ahxt/G2R)]
   - **Xiaotian Han**, Zhimeng Jiang, Ninghao Liu, Qingquan Song, Jundong Li, Xia Hu. 
@@ -133,6 +113,26 @@ My research interests lie in the general area of data mining and machine learnin
   - Li Song, Ruijia Wang, Ding Xiao, **Xiaotian Han**, Yanan Cai, Chuan Shi. 
   - ADMA2018, <span style="color:red">Best Paper Award</span>
 
+- Do We Really Achieve Fairness with Explicit Sensitive Atrributes? 
+  - Xiaotian Han, Zhimeng Jiang, Ninghao Liu, Na Zou, Qifan Wang, Xia Hu 
+  - Under review, 2022
+
+- Marginal Nodes Matter: Towards Structure Fairness in Graphs.
+  - Xiaotian Han, Kaixiong Zhou, Ting-Hsiang Wang, Jundong Li, Fei Wang, Na Zou
+  - Under review, 2022
+
+- Retiring ∆DP: New Distribution-Level Metrics for Demographic Parity.
+  - Xiaotian Han, Zhimeng Jiang, Hongye Jin, Zirui Liu, Na Zou, Qifan Wang, Xia Hu 
+  - Under review, 2022
+
+- Fair Graph Message Passing with Transparency.
+  - Zhimeng Jiang, Xiaotian Han, Chao Fan, Zirui Liu, Na Zou, Ali Mostafavi, Xia Hu 
+  - Under review, 2022
+
+- Topology Matters in Fair Graph Learning: a Theoretical Pilot Study.
+  - Zhimeng Jiang, Xiaotian Han, Chao Fan, Zirui Liu, Xiao Huang, Na Zou, Ali Mostafavi, Xia Hu 
+  - Under review, 2022
+
 
 # Internships
 
@@ -164,7 +164,8 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # Awards
-- *2022*, Travel Grant, Texas A&M University, Department of Computer Science & Engineering.
+_ *2022*, Outstanding Paper Award, ICML2022
+- *2022*, Travel Grant, Department of Computer Science & Engineering, Texas A&M University
 - *2022*, Travel Award, ICML2022.
 - *2022*, Outstanding Reviewer Award, ICML2022.
 - *2020*, Best Reviewer Award, CCF Transactions on Pervasive Computing and Interaction
@@ -173,8 +174,8 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # Professional Acitivities
-- Session Chair: ICML2022
 - Conference Reviewer: IJCAI2023, TheWebConf2023, ICDM2022, AAAI2023, NeurIPS2022, ICML2022, SIGIR2022, AAAI2022, AAAI2021, IJCAI2021
+- Session Chair: ICML2022
 - Volunteer: ICML2022, NAACL2022
 
 <div class="footer" hidden="hidden">
