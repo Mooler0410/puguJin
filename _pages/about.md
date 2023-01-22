@@ -29,6 +29,7 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # News
+- *2023.01*: One paper accepted by ICLR2022.
 - *2022.09*: Thrilled to start my internship at Meta, work with [Qifan Wang](https://wqfcr.github.io/). 
 - *2022.05*: Thrilled to start my internship at Snap Inc., work with [Neil Shah](http://nshah.net/). 
 - *2022.05*: One paper accepted by ICML2022. 
@@ -164,7 +165,7 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # Awards
-_ *2022*, Outstanding Paper Award, ICML2022
+- *2022*, Outstanding Paper Award, ICML2022
 - *2022*, Travel Grant, Department of Computer Science & Engineering, Texas A&M University
 - *2022*, Travel Award, ICML2022.
 - *2022*, Outstanding Reviewer Award, ICML2022.
