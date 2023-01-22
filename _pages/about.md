@@ -70,7 +70,7 @@ My research interests lie in the general area of data mining and machine learnin
   - **Xiaotian Han**, Tong Zhao, Yozen Liu, Xia Hu, Neil Shah
   - ICLR2023, Work done during the internship at Snap Research
 
-- G-Mixup: Graph Augmentation for Graph Classification. [[PDF](https://arxiv.org/abs/2202.07179)] 
+- $\mathcal{G}$-Mixup: Graph Augmentation for Graph Classification. [[PDF](https://arxiv.org/abs/2202.07179)] 
   - **Xiaotian Han**, Zhimeng Jiang, Ninghao Liu, Xia Hu.
   - ICML2022,  <span style="color:red">Outstanding Paper Award</span>
 
