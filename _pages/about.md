@@ -29,7 +29,7 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # News
-- *2023.01*: One paper accepted by ICLR2022.
+- *2023.01*: One paper accepted by ICLR2023.
 - *2022.09*: Thrilled to start my internship at Meta, work with [Qifan Wang](https://wqfcr.github.io/). 
 - *2022.05*: Thrilled to start my internship at Snap Inc., work with [Neil Shah](http://nshah.net/). 
 - *2022.05*: One paper accepted by ICML2022. 
@@ -68,7 +68,7 @@ My research interests lie in the general area of data mining and machine learnin
 
 - MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization. [[PDF](https://arxiv.org/pdf/2210.00102.pdf)] 
   - **Xiaotian Han**, Tong Zhao, Yozen Liu, Xia Hu, Neil Shah
-  - ICLR2022, Work done during the internship at Snap Research
+  - ICLR2023, Work done during the internship at Snap Research
 
 - G-Mixup: Graph Augmentation for Graph Classification. [[PDF](https://arxiv.org/abs/2202.07179)] 
   - **Xiaotian Han**, Zhimeng Jiang, Ninghao Liu, Xia Hu.
