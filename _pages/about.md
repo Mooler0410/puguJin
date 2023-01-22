@@ -123,7 +123,7 @@ My research interests lie in the general area of data mining and machine learnin
   - Under review, 2022
 
 - Retiring ∆DP: New Distribution-Level Metrics for Demographic Parity.
-  - Xiaotian Han, Zhimeng Jiang, Hongye Jin, Zirui Liu, Na Zou, Qifan Wang, Xia Hu 
+  - Xiaotian Han<sup>\*</sup>, Zhimeng Jiang<sup>\*</sup>, Hongye Jin, Zirui Liu, Na Zou, Qifan Wang, Xia Hu 
   - Under review, 2022
 
 - Fair Graph Message Passing with Transparency.
