@@ -66,11 +66,11 @@ My research interests lie in the general area of data mining and machine learnin
 <!-- - [****][](). -->
 
 
-- MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization. [[PDF](https://arxiv.org/pdf/2210.00102.pdf)] 
+- MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization. [[PDF](https://arxiv.org/pdf/2210.00102.pdf)] [[SLIDES](/files/mlpinit_slides.pdf)]
   - **Xiaotian Han**, Tong Zhao, Yozen Liu, Xia Hu, Neil Shah
-  - ICLR2023, Work done during the internship at Snap Research
+  - ICLR2023
 
-- $\mathcal{G}$-Mixup: Graph Augmentation for Graph Classification. [[PDF](https://arxiv.org/abs/2202.07179)] 
+- $\mathcal{G}$-Mixup: Graph Augmentation for Graph Classification. [[PDF](https://arxiv.org/abs/2202.07179)] [[SLIDES](/files/gmixup_slides.pdf)]
   - **Xiaotian Han**, Zhimeng Jiang, Ninghao Liu, Xia Hu.
   - ICML2022,  <span style="color:red">Outstanding Paper Award</span>
 
@@ -145,6 +145,7 @@ My research interests lie in the general area of data mining and machine learnin
   - Research Intern
   - Graph neural network training acceleration.
   - Work with:[Neil Shah](http://nshah.net/), [Tong Zhao](https://tzhao.io/), Yozen Liu
+  - Publication: MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization (ICLR2023)
 - Microsoft Research Asia, Beijing, China. *Mar. 2019 - May. 2019*
   - Research Intern
   - Hyperparameter Optimization and AutoML.
@@ -187,6 +188,6 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 ---
-Last updated on Jan 22, 2023.
+Last updated on March 08, 2023.
 
 
