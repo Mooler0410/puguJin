@@ -66,7 +66,7 @@ My research interests lie in the general area of data mining and machine learnin
 <!-- - [****][](). -->
 
 
-- MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization. [[PDF](https://arxiv.org/pdf/2210.00102.pdf)] [[SLIDES](/files/mlpinit_slides.pdf)]
+- MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization. [[PDF](https://arxiv.org/pdf/2210.00102.pdf)] [[SLIDES](/files/mlpinit_slides.pdf)][[CODE](https://github.com/snap-research/MLPInit-for-GNNs)]
   - **Xiaotian Han**, Tong Zhao, Yozen Liu, Xia Hu, Neil Shah
   - ICLR2023
 
