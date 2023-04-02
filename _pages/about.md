@@ -29,10 +29,13 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # News
-- *2023.01*: One paper accepted by ICLR2023.
+- *2023.03*: New preprint [Clinical Text Mining](https://arxiv.org/pdf/2301.13443.pdf) on LLM!
+- *2023.01*: New preprint [Retiring ∆DP](https://arxiv.org/pdf/2301.13443.pdf) on fariness metric!
+- *2023.01*: One paper [MLPInit](https://arxiv.org/pdf/2210.00102.pdf) accepted by ICLR2023.
 - *2022.09*: Thrilled to start my internship at Meta, work with [Qifan Wang](https://wqfcr.github.io/). 
+- *2022.07*: Our Paper [$\mathcal{G}$-Mixup](https://arxiv.org/pdf/2202.07179.pdf) is awarded an Outstanding Paper Award at ICML 2022!
 - *2022.05*: Thrilled to start my internship at Snap Inc., work with [Neil Shah](http://nshah.net/). 
-- *2022.05*: One paper accepted by ICML2022. 
+- *2022.05*: One paper accepted by ICML2022 (Oral). 
 - *2022.01*: One paper accepted by ICLR2022. 
 - *2022.01*: One paper accepted by TheWebConf2022. 
 
@@ -64,6 +67,15 @@ My research interests lie in the general area of data mining and machine learnin
 - [**APWeb-WAIM2018**] [Representation learning with depth and breadth for recommendation using multi-view data](http://www.shichuan.org/doc/57.pdf). **Xiaotian Han**, Chuan Shi, Lei Zheng, S Yu Philip, Jianxin Li, Yuanfu Lu. 
 - [**ADMA2018**][Anomalous Trajectory Detection Using Recurrent Neural Network](http://shichuan.org/doc/60.pdf). Li Song, Ruijia Wang, Ding Xiao, **Xiaotian Han**, Yanan Cai, Chuan Shi. (<span style="color:red">Best paper award</span>) -->
 <!-- - [****][](). -->
+
+
+- Does Synthetic Data Generation of LLMs Help Clinical Text Mining? [[PDF]](https://arxiv.org/pdf/2303.04360.pdf)
+  - Ruixiang Tran<sup>\*</sup>, Xiaotian Han<sup>\*</sup>, Xiaoqian Jiang, Xia Hu 
+  - Under review, 2023
+
+- Retiring ∆DP: New Distribution-Level Metrics for Demographic Parity. [[PDF]](https://arxiv.org/pdf/2301.13443.pdf)
+  - Xiaotian Han<sup>\*</sup>, Zhimeng Jiang<sup>\*</sup>, Hongye Jin, Zirui Liu, Na Zou, Qifan Wang, Xia Hu 
+  - Under review, 2023
 
 
 - MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization. [[PDF](https://arxiv.org/pdf/2210.00102.pdf)] [[SLIDES](/files/mlpinit_slides.pdf)][[CODE](https://github.com/snap-research/MLPInit-for-GNNs)]
@@ -120,10 +132,6 @@ My research interests lie in the general area of data mining and machine learnin
 
 - Marginal Nodes Matter: Towards Structure Fairness in Graphs.
   - Xiaotian Han, Kaixiong Zhou, Ting-Hsiang Wang, Jundong Li, Fei Wang, Na Zou
-  - Under review, 2022
-
-- Retiring ∆DP: New Distribution-Level Metrics for Demographic Parity.
-  - Xiaotian Han<sup>\*</sup>, Zhimeng Jiang<sup>\*</sup>, Hongye Jin, Zirui Liu, Na Zou, Qifan Wang, Xia Hu 
   - Under review, 2022
 
 - Fair Graph Message Passing with Transparency.
