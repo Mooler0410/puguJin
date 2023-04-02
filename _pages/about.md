@@ -29,7 +29,7 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # News
-- *2023.03*: New preprint [Clinical Text Mining](https://arxiv.org/pdf/2301.13443.pdf) on LLM!
+- *2023.03*: New preprint [Clinical Text Mining](https://arxiv.org/pdf/2303.04360.pdf) on LLM!
 - *2023.01*: New preprint [Retiring ∆DP](https://arxiv.org/pdf/2301.13443.pdf) on fariness metric!
 - *2023.01*: One paper [MLPInit](https://arxiv.org/pdf/2210.00102.pdf) accepted by ICLR2023.
 - *2022.09*: Thrilled to start my internship at Meta, work with [Qifan Wang](https://wqfcr.github.io/). 
