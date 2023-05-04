@@ -29,6 +29,7 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # News
+- *2023.04*: New preprint [Survey on LLMs](https://arxiv.org/abs/2304.13712)!
 - *2023.03*: New preprint [Clinical Text Mining](https://arxiv.org/pdf/2303.04360.pdf) on LLM!
 - *2023.01*: New preprint [Retiring ∆DP](https://arxiv.org/pdf/2301.13443.pdf) on fariness metric!
 - *2023.01*: One paper [MLPInit](https://arxiv.org/pdf/2210.00102.pdf) accepted by ICLR2023.
@@ -185,7 +186,7 @@ My research interests lie in the general area of data mining and machine learnin
 
 # Professional Acitivities
 - Conference Reviewer: IJCAI2023, TheWebConf2023, ICDM2022, AAAI2023, NeurIPS2022, ICML2022, SIGIR2022, AAAI2022, AAAI2021, IJCAI2021
-- Session Chair: ICML2022
+- Session Chair: ICML2022, TheWebConf2023
 - Volunteer: ICML2022, NAACL2022
 
 <div class="footer" hidden="hidden">
@@ -196,6 +197,6 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 ---
-Last updated on April 11, 2023.
+Last updated on May 04, 2023.
 
 
