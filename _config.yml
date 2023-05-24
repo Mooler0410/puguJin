@@ -23,13 +23,13 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "Xiaotian Han"
   avatar           : "images/xt.jpeg"
-  bio              : "Ph.D. student at Texas A&M Unversity"
+  bio              : "CS Ph.D. student at Texas A&M Unversity"
   location         : "College Station, Texas"
   employer         : "Texas A&M Unversity"
   pubmed           : 
   googlescholar    : "https://scholar.google.com/citations?user=Uromx98AAAAJ"
   email            : # "han@tamu.edu"
-  researchgate     :  # e.g., "https://www.researchgate.net/profile/yourprofile"
+  researchgate     : 
   uri              :
   bitbucket        :
   codepen          :

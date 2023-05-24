@@ -29,6 +29,7 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # News
+- *2023.05*: Thrilled to start my internship at Amazon.
 - *2023.04*: New preprint [Survey on LLMs](https://arxiv.org/abs/2304.13712)!
 - *2023.03*: New preprint [Clinical Text Mining](https://arxiv.org/pdf/2303.04360.pdf) on LLM!
 - *2023.01*: New preprint [Retiring ∆DP](https://arxiv.org/pdf/2301.13443.pdf) on fariness metric!
@@ -71,7 +72,7 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 - Does Synthetic Data Generation of LLMs Help Clinical Text Mining? [[PDF]](https://arxiv.org/pdf/2303.04360.pdf)
-  - Ruixiang Tran<sup>\*</sup>, Xiaotian Han<sup>\*</sup>, Xiaoqian Jiang, Xia Hu 
+  - Ruixiang Tang<sup>\*</sup>, Xiaotian Han<sup>\*</sup>, Xiaoqian Jiang, Xia Hu 
   - Under review, 2023
 
 - Retiring ∆DP: New Distribution-Level Metrics for Demographic Parity. [[PDF]](https://arxiv.org/pdf/2301.13443.pdf)
@@ -145,8 +146,12 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # Internships
+- Amazon, Palo Alto, CA.  *May 2023 – present*
+  - Research Intern
+  - Large Language Model
+  - Work with [Jingfeng Yang](https://jingfengyang.github.io/), [Haoming Jiang](https://hmjianggatech.github.io/), [Qingyu Yin](), [Bin Bi](), [Chao Zhang](http://chaozhang.org/).
 
-- Meta, Menlo Park, CA.  *Sept. 2022 – present*
+- Meta, Menlo Park, CA.  *Sept. 2022 – April 2023*
   - Research Intern
   - Understanding graph neural networks
   - Work with: [Qifan Wang](https://wqfcr.github.io/)
