@@ -29,11 +29,11 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 # News
+- *2023.05*: One paper accepted by TMLR, [Retiring ∆DP](https://openreview.net/forum?id=LjDFIWWVVa)!
 - *2023.05*: Thrilled to start my internship at Amazon.
 - *2023.04*: New preprint [Survey on LLMs](https://arxiv.org/abs/2304.13712)!
 - *2023.03*: New preprint [Clinical Text Mining](https://arxiv.org/pdf/2303.04360.pdf) on LLM!
-- *2023.01*: New preprint [Retiring ∆DP](https://arxiv.org/pdf/2301.13443.pdf) on fariness metric!
-- *2023.01*: One paper [MLPInit](https://arxiv.org/pdf/2210.00102.pdf) accepted by ICLR2023.
+- *2023.01*: One paper accepted by ICLR2023, [MLPInit](https://arxiv.org/pdf/2210.00102.pdf).
 - *2022.09*: Thrilled to start my internship at Meta, work with [Qifan Wang](https://wqfcr.github.io/). 
 - *2022.07*: Our Paper [$\mathcal{G}$-Mixup](https://arxiv.org/pdf/2202.07179.pdf) is awarded an Outstanding Paper Award at ICML 2022!
 - *2022.05*: Thrilled to start my internship at Snap Inc., work with [Neil Shah](http://nshah.net/). 
@@ -41,9 +41,9 @@ My research interests lie in the general area of data mining and machine learnin
 - *2022.01*: One paper accepted by ICLR2022. 
 - *2022.01*: One paper accepted by TheWebConf2022. 
 
-<!-- # Selected Publications 
+<!-- # Selected Publications  -->
 
-<div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='images/500x300.png' alt="sym" width="100%"></div></div>
+<!-- <div class='paper-box'><div class='paper-box-image'><div><div class="badge">CVPR 2016</div><img src='../images/500x300.png' alt="sym" width="100%"></div></div>
 <div class='paper-box-text' markdown="1">
 
 [Deep Residual Learning for Image Recognition](https://openaccess.thecvf.com/content_cvpr_2016/papers/He_Deep_Residual_Learning_CVPR_2016_paper.pdf)
@@ -70,14 +70,18 @@ My research interests lie in the general area of data mining and machine learnin
 - [**ADMA2018**][Anomalous Trajectory Detection Using Recurrent Neural Network](http://shichuan.org/doc/60.pdf). Li Song, Ruijia Wang, Ding Xiao, **Xiaotian Han**, Yanan Cai, Chuan Shi. (<span style="color:red">Best paper award</span>) -->
 <!-- - [****][](). -->
 
+- Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyond [[PDF]](https://arxiv.org/pdf/2304.13712.pdf)  [[Github]](https://github.com/Mooler0410/LLMsPracticalGuide) 
+  - Jingfeng Yang<sup>\*</sup>, Hongye Jin<sup>\*</sup>, Ruixiang Tang<sup>\*</sup>, **Xiaotian Han**<sup>\*</sup>, Qizhang Feng<sup>\*</sup>, Haoming Jiang, Bing Yin, Xia Hu
+  - Preprint, 2023
+
 
 - Does Synthetic Data Generation of LLMs Help Clinical Text Mining? [[PDF]](https://arxiv.org/pdf/2303.04360.pdf)
-  - Ruixiang Tang<sup>\*</sup>, Xiaotian Han<sup>\*</sup>, Xiaoqian Jiang, Xia Hu 
+  - Ruixiang Tang<sup>\*</sup>, **Xiaotian Han**<sup>\*</sup>, Xiaoqian Jiang, Xia Hu 
   - Under review, 2023
 
 - Retiring ∆DP: New Distribution-Level Metrics for Demographic Parity. [[PDF]](https://arxiv.org/pdf/2301.13443.pdf)
-  - Xiaotian Han<sup>\*</sup>, Zhimeng Jiang<sup>\*</sup>, Hongye Jin, Zirui Liu, Na Zou, Qifan Wang, Xia Hu 
-  - Under review, 2023
+  - **Xiaotian Han**<sup>\*</sup>, Zhimeng Jiang<sup>\*</sup>, Hongye Jin<sup>\*</sup>, Zirui Liu, Na Zou, Qifan Wang, Xia Hu 
+  - TMLR, 2023
 
 
 - MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization. [[PDF](https://arxiv.org/pdf/2210.00102.pdf)] [[SLIDES](/files/mlpinit_slides.pdf)][[CODE](https://github.com/snap-research/MLPInit-for-GNNs)]
