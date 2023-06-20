@@ -106,7 +106,7 @@ My research interests lie in the general area of machine learning, NLP and data 
 
 - Damo Academy, Alibaba, Beijing, China. *Dec. 2020 - Feb. 2021*
   - Research Intern
-  - Weak/distance-supervise learning for NLP. 
+  - Weak/distant-supervised learning for NLP. 
 
 
 # Educations
