@@ -19,9 +19,9 @@ redirect_from:
 
 Hi there!
 
-I am currently a 4th-year Ph.D. student in the <a href="https://engineering.tamu.edu/cse/index.html" target="_blank">Department of Computer Science and Engineering</a> at <a href="https://www.tamu.edu" target="_blank">Texas A&M University</a>. I am working at the DATA Lab under the supervision of Prof. <a href="https://cs.rice.edu/~xh37/index.html" target="_blank">Xia (Ben) Hu</a>.
+I am currently a 3rd-year Ph.D. student in the <a href="https://engineering.tamu.edu/cse/index.html" target="_blank">Department of Computer Science and Engineering</a> at <a href="https://www.tamu.edu" target="_blank">Texas A&M University</a>. I am working at the DATA Lab under the supervision of Prof. <a href="https://cs.rice.edu/~xh37/index.html" target="_blank">Xia (Ben) Hu</a>.
 
-My research interests lie in the general area of data mining and machine learning.
+My research interests lie in the general area of machine learning, NLP and data mining.
 
 
 
@@ -32,14 +32,6 @@ My research interests lie in the general area of data mining and machine learnin
 - *2023.05*: One paper accepted by TMLR, [Retiring ∆DP](https://openreview.net/forum?id=LjDFIWWVVa)!
 - *2023.05*: Thrilled to start my internship at Amazon.
 - *2023.04*: New preprint [Survey on LLMs](https://arxiv.org/abs/2304.13712)!
-- *2023.03*: New preprint [Clinical Text Mining](https://arxiv.org/pdf/2303.04360.pdf) on LLM!
-- *2023.01*: One paper accepted by ICLR2023, [MLPInit](https://arxiv.org/pdf/2210.00102.pdf).
-- *2022.09*: Thrilled to start my internship at Meta, work with [Qifan Wang](https://wqfcr.github.io/). 
-- *2022.07*: Our Paper [$\mathcal{G}$-Mixup](https://arxiv.org/pdf/2202.07179.pdf) is awarded an Outstanding Paper Award at ICML 2022!
-- *2022.05*: Thrilled to start my internship at Snap Inc., work with [Neil Shah](http://nshah.net/). 
-- *2022.05*: One paper accepted by ICML2022 (Oral). 
-- *2022.01*: One paper accepted by ICLR2022. 
-- *2022.01*: One paper accepted by TheWebConf2022. 
 
 <!-- # Selected Publications  -->
 
@@ -70,112 +62,29 @@ My research interests lie in the general area of data mining and machine learnin
 - [**ADMA2018**][Anomalous Trajectory Detection Using Recurrent Neural Network](http://shichuan.org/doc/60.pdf). Li Song, Ruijia Wang, Ding Xiao, **Xiaotian Han**, Yanan Cai, Chuan Shi. (<span style="color:red">Best paper award</span>) -->
 <!-- - [****][](). -->
 
+- Retiring ∆DP: New Distribution-Level Metrics for Demographic Parity. [[PDF]](https://arxiv.org/pdf/2301.13443.pdf)
+  - Xiaotian Han<sup>\*</sup>, Zhimeng Jiang<sup>\*</sup>, **Hongye Jin**<sup>\*</sup>, Zirui Liu, Na Zou, Qifan Wang, Xia Hu 
+  - TMLR, 2023
+
 - Harnessing the Power of LLMs in Practice: A Survey on ChatGPT and Beyond [[PDF]](https://arxiv.org/pdf/2304.13712.pdf)  [[Github]](https://github.com/Mooler0410/LLMsPracticalGuide) 
-  - Jingfeng Yang<sup>\*</sup>, Hongye Jin<sup>\*</sup>, Ruixiang Tang<sup>\*</sup>, **Xiaotian Han**<sup>\*</sup>, Qizhang Feng<sup>\*</sup>, Haoming Jiang, Bing Yin, Xia Hu
+  - Jingfeng Yang<sup>\*</sup>, **Hongye Jin**<sup>\*</sup>, Ruixiang Tang<sup>\*</sup>, Xiaotian Han<sup>\*</sup>, Qizhang Feng<sup>\*</sup>, Haoming Jiang, Bing Yin, Xia Hu
   - Preprint, 2023
 
 
-- Does Synthetic Data Generation of LLMs Help Clinical Text Mining? [[PDF]](https://arxiv.org/pdf/2303.04360.pdf)
-  - Ruixiang Tang<sup>\*</sup>, **Xiaotian Han**<sup>\*</sup>, Xiaoqian Jiang, Xia Hu 
-  - Under review, 2023
-
-- Retiring ∆DP: New Distribution-Level Metrics for Demographic Parity. [[PDF]](https://arxiv.org/pdf/2301.13443.pdf)
-  - **Xiaotian Han**<sup>\*</sup>, Zhimeng Jiang<sup>\*</sup>, Hongye Jin<sup>\*</sup>, Zirui Liu, Na Zou, Qifan Wang, Xia Hu 
-  - TMLR, 2023
-
-
-- MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization. [[PDF](https://arxiv.org/pdf/2210.00102.pdf)] [[SLIDES](/files/mlpinit_slides.pdf)][[CODE](https://github.com/snap-research/MLPInit-for-GNNs)]
-  - **Xiaotian Han**, Tong Zhao, Yozen Liu, Xia Hu, Neil Shah
-  - ICLR2023
-
-- $\mathcal{G}$-Mixup: Graph Augmentation for Graph Classification. [[PDF](https://arxiv.org/abs/2202.07179)] [[SLIDES](/files/gmixup_slides.pdf)]
-  - **Xiaotian Han**, Zhimeng Jiang, Ninghao Liu, Xia Hu.
-  - ICML2022,  <span style="color:red">Outstanding Paper Award</span>
-
-- Generalized Demographic Parity for Group Fairness. [[PDF](https://openreview.net/pdf?id=YigKlMJwjye)] 
-  - Zhimeng Jiang, **Xiaotian Han**, Chao Fan, Fan Yang, Ali Mostafavi, Xia Hu.
-  - ICLR2022 
-
-- Geometric Graph Representation Learning via Maximizing Rate Reduction. [[PDF](https://doi.org/10.1145/3485447.3512170)] [[SLIDES](/files/WWW2022_slides.pdf)] [[CODE](https://github.com/ahxt/G2R)]
-  - **Xiaotian Han**, Zhimeng Jiang, Ninghao Liu, Qingquan Song, Jundong Li, Xia Hu. 
-  - TheWebConf2022
-
-- AutoRec: An Automated Recommender System. [[PDF](https://dl.acm.org/doi/abs/10.1145/3383313.3411529)] [[CODE](https://github.com/datamllab/AutoRec)]
-  - Ting-Hsiang Wang, Qingquan Song, **Xiaotian Han**, Zirui Liu, Jin Haifeng, Xia Hu. 
-  - Recsys2020, Demo
-
-- FlowScope: Spotting Money Laundering Based on Graphs. [[PDF](https://ojs.aaai.org/index.php/AAAI/article/view/5906)]
-  - Xiangfeng Li, Shenghua Liu, Zifeng Li, **Xiaotian Han**, Chuan Shi, Bryan Hooi, He Huang, Xueqi Cheng.
-  - AAAI2020
-
-- Embedding Geographic Information for Anomalous Trajectory Detection. [[PDF](https://link.springer.com/article/10.1007/s11280-020-00812-z)]
-  - Ding Xiao, Li Song, Ruijia Wang, **Xiaotian Han**, Yanan Cai, Chuan Shi.
-  - World Wide Web 2020
-
-- Metapath-guided Heterogeneous Graph Neural Network for Intent Recommendation. [[PDF](https://dl.acm.org/doi/abs/10.1145/3292500.3330673)] 
-  - Shaohua Fan, Junxiong Zhu, **Xiaotian Han**, Chuan Shi, Linmei Hu, Biyu Ma, Yongliang Li.
-  - KDD2019
-
-- Deep Collaborative Filtering with Multi-aspect Information in Heterogeneous Networks. [[PDF](https://arxiv.org/abs/1909.06627)]
-  - Chuan Shi, **Xiaotian Han**, Li Song, Xiao Wang, Senzhang Wang, Junping Du, Philip, S Yu.
-  - TKDE2019
-
-- Aspect-Level Deep Collaborative Filtering via Heterogeneous Information Networks. [[PDF](https://www.ijcai.org/proceedings/2018/0471.pdf)]  [[CODE](https://github.com/ahxt/NeuACF)]
-  - **Xiaotian Han**, Chuan Shi, Senzhang Wang, S Yu Philip, Li Song. 
-  - IJCAI2018
-
-- Representation Learning with Depth and Breadth for Recommendation using Multi-view Data. [[PDF](http://www.shichuan.org/doc/57.pdf)] 
-  - **Xiaotian Han**, Chuan Shi, Lei Zheng, S Yu Philip, Jianxin Li, Yuanfu Lu. 
-  - APWeb-WAIM2018
-
-- Anomalous Trajectory Detection Using Recurrent Neural Network. [[PDF](http://shichuan.org/doc/60.pdf)]
-  - Li Song, Ruijia Wang, Ding Xiao, **Xiaotian Han**, Yanan Cai, Chuan Shi. 
-  - ADMA2018, <span style="color:red">Best Paper Award</span>
-
-- Do We Really Achieve Fairness with Explicit Sensitive Atrributes? 
-  - Xiaotian Han, Zhimeng Jiang, Ninghao Liu, Na Zou, Qifan Wang, Xia Hu 
-  - Under review, 2022
-
-- Marginal Nodes Matter: Towards Structure Fairness in Graphs.
-  - Xiaotian Han, Kaixiong Zhou, Ting-Hsiang Wang, Jundong Li, Fei Wang, Na Zou
-  - Under review, 2022
-
-- Fair Graph Message Passing with Transparency.
-  - Zhimeng Jiang, Xiaotian Han, Chao Fan, Zirui Liu, Na Zou, Ali Mostafavi, Xia Hu 
-  - Under review, 2022
-
-- Topology Matters in Fair Graph Learning: a Theoretical Pilot Study.
-  - Zhimeng Jiang, Xiaotian Han, Chao Fan, Zirui Liu, Xiao Huang, Na Zou, Ali Mostafavi, Xia Hu 
-  - Under review, 2022
-
-
 # Internships
-- Amazon, Palo Alto, CA.  *May 2023 – present*
+- Visa Research, Palo Alto, CA.  *Sept 2022 – Dec 2022*
   - Research Intern
-  - Large Language Model
+  - Out-of-distribution Generalization of Graph Neural Networks
   - Work with [Jingfeng Yang](https://jingfengyang.github.io/), [Haoming Jiang](https://hmjianggatech.github.io/), [Qingyu Yin](), [Bin Bi](), [Chao Zhang](http://chaozhang.org/).
 
-- Meta, Menlo Park, CA.  *Sept. 2022 – April 2023*
+- Damo Academy, Alibaba, Beijing, China. *Dec. 2020 - Feb. 2021*
   - Research Intern
-  - Understanding graph neural networks
-  - Work with: [Qifan Wang](https://wqfcr.github.io/)
-- Snap Research, Seattle, WA. *Mar. 2022 - Aug. 2022*
-  - Research Intern
-  - Graph neural network training acceleration.
-  - Work with:[Neil Shah](http://nshah.net/), [Tong Zhao](https://tzhao.io/), Yozen Liu
-  - Publication: MLPInit: Embarrassingly Simple GNN Training Acceleration with MLP Initialization (ICLR2023)
-- Microsoft Research Asia, Beijing, China. *Mar. 2019 - May. 2019*
-  - Research Intern
-  - Hyperparameter Optimization and AutoML.
-- Alibaba Group, Hangzhou, China. *Jun. 2018 - Sept. 2018*
-  - Research Intern
-  - Query recomendataion in Taobao App.
+  - Weak/distance-supervise learning for NLP. 
 
 
 # Educations
-- *Aug. 2019 - now*, Ph.D. Student, Computer Science, Texas A&M University.
-- *Sept. 2016 - Jun. 2019*, Master Degree, Computer Science, Beijing Univ. of Posts and Telecommunications.
-- *Sept. 2011 - Jun. 2015*, Bacheler Degree, Communication Engineering, Shandong University.
+- *Aug. 2020 - now*, Ph.D. Student, Computer Science, Texas A&M University.
+- *Sept. 2015 - July. 2020*, Bacheler Degree, Computer Science, Peking University.
 
 
 <!-- # Invited Talks
@@ -183,6 +92,7 @@ My research interests lie in the general area of data mining and machine learnin
 - *2021.03*, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus ornare aliquet ipsum, ac tempus justo dapibus sit amet.  \| [\[video\]](https://github.com/) -->
 
 
+<!--
 # Awards
 - *2022*, Outstanding Paper Award, ICML2022
 - *2022*, Travel Grant, Department of Computer Science & Engineering, Texas A&M University
@@ -190,7 +100,7 @@ My research interests lie in the general area of data mining and machine learnin
 - *2022*, Outstanding Reviewer Award, ICML2022.
 - *2020*, Best Reviewer Award, CCF Transactions on Pervasive Computing and Interaction
 - *2018*, 1st  National Graduate Scholarship, Beijing University of Posts and Telecommunications, Beijing, China.
-- *2017*, 1st  Student Scholarship, Beijing University of Posts and Telecommunications, Beijing, China.
+- *2017*, 1st  Student Scholarship, Beijing University of Posts and Telecommunications, Beijing, China. -->
 
 
 # Professional Acitivities
@@ -206,6 +116,6 @@ My research interests lie in the general area of data mining and machine learnin
 
 
 ---
-Last updated on May 04, 2023.
+Last updated on June 04, 2023.
 
 
