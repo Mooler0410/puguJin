@@ -30,7 +30,7 @@ My research interests lie in the general area of machine learning, NLP and data 
 
 # News
 - *2023.05*: One paper accepted by TMLR, [Retiring ∆DP](https://openreview.net/forum?id=LjDFIWWVVa)!
-- *2023.05*: Thrilled to start my internship at Amazon.
+<!-- - *2023.05*: Thrilled to start my internship at Amazon. -->
 - *2023.04*: New preprint [Survey on LLMs](https://arxiv.org/abs/2304.13712)!
 
 <!-- # Selected Publications  -->
@@ -104,9 +104,7 @@ My research interests lie in the general area of machine learning, NLP and data 
 
 
 # Professional Acitivities
-- Conference Reviewer: IJCAI2023, TheWebConf2023, ICDM2022, AAAI2023, NeurIPS2022, ICML2022, SIGIR2022, AAAI2022, AAAI2021, IJCAI2021
-- Session Chair: ICML2022, TheWebConf2023
-- Volunteer: ICML2022, NAACL2022
+
 
 <div class="footer" hidden="hidden">
     <div class="center">
