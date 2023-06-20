@@ -131,6 +131,8 @@ My research interests lie in the general area of machine learning, NLP and data 
 
 
 # Professional Acitivities
+- Conference Reviewer: WWW'23, KDD'23, ICDM'22, NeurIPS'23
+- Journal Reviewer: ACM Transactions on Intelligent Systems and Technology
 
 
 <div class="footer" hidden="hidden">
