@@ -70,12 +70,39 @@ My research interests lie in the general area of machine learning, NLP and data 
   - Jingfeng Yang<sup>\*</sup>, **Hongye Jin**<sup>\*</sup>, Ruixiang Tang<sup>\*</sup>, Xiaotian Han<sup>\*</sup>, Qizhang Feng<sup>\*</sup>, Haoming Jiang, Bing Yin, Xia Hu
   - Preprint, 2023
 
+- Disentangled graph collaborative filtering [[PDF]](https://arxiv.org/pdf/2007.01764.pdf)
+  - Xiang Wang, **Hongye Jin**, An Zhang, Xiangnan He, Tong Xu, Tat-Seng Chua
+  - SIGIR, 2020.
+
+- Transferring Fairness under Distribution Shift without Sensitive Information
+  - **Hongye Jin**, Fan Yang, Cecilia Tilli, Saumitra Mishra, Xia Hu
+  - Under Review
+
+- Weight Perturbation Can Help Fairness under Distribution Shift [[PDF]](https://arxiv.org/pdf/2303.03300.pdf)
+  - Zhimeng Jiang, Xiaotian Han, **Hongye Jin**, Guanchu Wang, Na Zou, Xia Hu
+  - Under Review
+
+- Was my Model Stolen? Feature Sharing for Robust and Transferable Watermarks [[PDF]](https://openreview.net/pdf?id=XHxRBwjpEQ)
+  - Ruixiang Tang, **Hongye Jin**, Curtis Wigington, Mengnan Du, Rajiv Jain, Xia Hu
+  - Preprint, 2022
+
+- Towards Mitigating Dimensional Collapse of Representations in Collaborative Filtering 
+  - Huiyuan Chen, Vivian Lai, Zhimeng Jiang, **Hongye Jin**, Chin-Chia Michael Yeh, Yan Zheng, Xia Hu and Hao Yang
+  - Under Review
+
+- Gradient Rewiring for Editable Graph Neural Network Training
+  - Zhimeng Jiang, Zirui Liu, Xiaotian Han, Qizhang Feng, **Hongye Jin**, Qiaoyu Tan, Kaixiong Zhou, Na Zou, Xia Hu
+  - Under Review
+
+
+
+
 
 # Internships
 - Visa Research, Palo Alto, CA.  *Sept 2022 – Dec 2022*
   - Research Intern
   - Out-of-distribution Generalization of Graph Neural Networks
-  - Work with [Jingfeng Yang](https://jingfengyang.github.io/), [Haoming Jiang](https://hmjianggatech.github.io/), [Qingyu Yin](), [Bin Bi](), [Chao Zhang](http://chaozhang.org/).
+  - Work with [Huiyuan Chen](https://scholar.google.com/citations?user=3T86-rYAAAAJ&hl=en), [Hao Yang](https://scholar.google.com/citations?hl=en&user=BUBXsWgAAAAJ).
 
 - Damo Academy, Alibaba, Beijing, China. *Dec. 2020 - Feb. 2021*
   - Research Intern
