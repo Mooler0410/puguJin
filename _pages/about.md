@@ -19,11 +19,14 @@ redirect_from:
 
 Hi there!
 
-I am currently a 3rd-year Ph.D. student in the <a href="https://engineering.tamu.edu/cse/index.html" target="_blank">Department of Computer Science and Engineering</a> at <a href="https://www.tamu.edu" target="_blank">Texas A&M University</a>. I am working at the DATA Lab under the supervision of Prof. <a href="https://cs.rice.edu/~xh37/index.html" target="_blank">Xia (Ben) Hu</a>.
+I am currently a 4th-year Ph.D. student in the <a href="https://engineering.tamu.edu/cse/index.html" target="_blank">Department of Computer Science and Engineering</a> at <a href="https://www.tamu.edu" target="_blank">Texas A&M University</a>. I am working at the DATA Lab under the supervision of Prof. <a href="https://cs.rice.edu/~xh37/index.html" target="_blank">Xia (Ben) Hu</a>.
 
 My research interests lie in the general area of machine learning, NLP and data mining.
 
-
+# News
+- *2023.09*: One paper accepted by NeurIPS2023.
+- *2023.05*: One paper accepted by TMLR, [Retiring ∆DP](https://openreview.net/forum?id=LjDFIWWVVa)!
+- *2023.04*: New preprint [Survey on LLMs](https://arxiv.org/abs/2304.13712)!
 
 <!-- My research interest includes neural machine translation and computer vision. I have published more than 100 papers at the top international AI conferences with total <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'>google scholar citations <strong><span id='total_cit'>260000+</span></strong></a> (You can also use google scholar badge <a href='https://scholar.google.com/citations?user=DhtAFkwAAAAJ'><img src="https://img.shields.io/endpoint?url={{ url | url_encode }}&logo=Google%20Scholar&labelColor=f6f6f6&color=9cf&style=flat&label=citations"></a>). -->
 
@@ -61,6 +64,9 @@ My research interests lie in the general area of machine learning, NLP and data 
 - [**APWeb-WAIM2018**] [Representation learning with depth and breadth for recommendation using multi-view data](http://www.shichuan.org/doc/57.pdf). **Xiaotian Han**, Chuan Shi, Lei Zheng, S Yu Philip, Jianxin Li, Yuanfu Lu. 
 - [**ADMA2018**][Anomalous Trajectory Detection Using Recurrent Neural Network](http://shichuan.org/doc/60.pdf). Li Song, Ruijia Wang, Ding Xiao, **Xiaotian Han**, Yanan Cai, Chuan Shi. (<span style="color:red">Best paper award</span>) -->
 <!-- - [****][](). -->
+- Chasing Fairness under Distribution Shift: a Model Weight Perturbation Approach [[PDF]](https://arxiv.org/pdf/2303.03300.pdf)
+  - Zhimeng Jiang<sup>\*</sup>, Xiaotian Han<sup>\*</sup>, **Hongye Jin**, Guanchu Wang, Rui Chen, Na Zou, Xia Hu.
+  - NeurIPS2023
 
 - Retiring ∆DP: New Distribution-Level Metrics for Demographic Parity. [[PDF]](https://arxiv.org/pdf/2301.13443.pdf)
   - Xiaotian Han<sup>\*</sup>, Zhimeng Jiang<sup>\*</sup>, **Hongye Jin**<sup>\*</sup>, Zirui Liu, Na Zou, Qifan Wang, Xia Hu 
@@ -70,6 +76,10 @@ My research interests lie in the general area of machine learning, NLP and data 
   - Jingfeng Yang<sup>\*</sup>, **Hongye Jin**<sup>\*</sup>, Ruixiang Tang<sup>\*</sup>, Xiaotian Han<sup>\*</sup>, Qizhang Feng<sup>\*</sup>, Haoming Jiang, Bing Yin, Xia Hu
   - Preprint, 2023
 
+- Exposing Model Theft: A Robust and Transferable Watermark for Thwarting Model Extraction Attacks 
+  - Ruixiang Tang, **Hongye Jin**, Mengnan Du, Curtis Wigington, Rajiv Jain, and Xia Hu 
+  - CIKM(short)
+
 - Disentangled graph collaborative filtering [[PDF]](https://arxiv.org/pdf/2007.01764.pdf)
   - Xiang Wang, **Hongye Jin**, An Zhang, Xiangnan He, Tong Xu, Tat-Seng Chua
   - SIGIR, 2020.
@@ -77,14 +87,9 @@ My research interests lie in the general area of machine learning, NLP and data 
 - Transferring Fairness under Distribution Shift without Sensitive Information
   - **Hongye Jin**, Fan Yang, Cecilia Tilli, Saumitra Mishra, Xia Hu
   - Under Review
-
-- Weight Perturbation Can Help Fairness under Distribution Shift [[PDF]](https://arxiv.org/pdf/2303.03300.pdf)
-  - Zhimeng Jiang, Xiaotian Han, **Hongye Jin**, Guanchu Wang, Na Zou, Xia Hu
-  - Under Review
-
-- Was my Model Stolen? Feature Sharing for Robust and Transferable Watermarks [[PDF]](https://openreview.net/pdf?id=XHxRBwjpEQ)
-  - Ruixiang Tang, **Hongye Jin**, Curtis Wigington, Mengnan Du, Rajiv Jain, Xia Hu
-  - Preprint, 2022
+- GrowLength: Accelerating LLMs Pretraining by Progressively Growing Training Length [[PDF]](https://arxiv.org/pdf/2310.00576.pdf)
+  - **Hongye Jin**<sup>\*</sup>, Xiaotian Han<sup>\*</sup>, Jingfeng Yang, Zhimeng Jiang, Chia-Yuan Chang, Xia Hu
+  - Preprint, 2023
 
 - Towards Mitigating Dimensional Collapse of Representations in Collaborative Filtering 
   - Huiyuan Chen, Vivian Lai, Zhimeng Jiang, **Hongye Jin**, Chin-Chia Michael Yeh, Yan Zheng, Xia Hu and Hao Yang
@@ -131,7 +136,7 @@ My research interests lie in the general area of machine learning, NLP and data 
 
 
 # Professional Acitivities
-- Conference Reviewer: WWW'23, KDD'23, ICDM'22, NeurIPS'23
+- Conference Reviewer: WWW'23, KDD'23, ICDM'22, NeurIPS'23, AAAI'24
 - Journal Reviewer: ACM Transactions on Intelligent Systems and Technology
 
 
@@ -143,6 +148,6 @@ My research interests lie in the general area of machine learning, NLP and data 
 
 
 ---
-Last updated on June 04, 2023.
+Last updated on Sept 30, 2023.
 
 
