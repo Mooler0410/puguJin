@@ -141,12 +141,6 @@ My research interests lie in the general area of machine learning, NLP and data 
 - Journal Reviewer: ACM Transactions on Intelligent Systems and Technology
 
 
-<div class="footer" hidden="hidden">
-    <div class="center">
-        <a><img src="//clustrmaps.com/map_v2.png?cl=ffffff&w=a&t=m&d=91g_Uih-7fadH9madF_Vex1LQXOVlduL5aeBBSKXgXA&co=2d78ad&ct=ffffff" /></a>
-    </div>
-</div>
-
 
 ---
 Last updated on Sept 30, 2023.
