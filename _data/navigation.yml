@@ -1,13 +1,13 @@
 # main links links
 main:
-  - title: "Educations"
-     url: "/puguJin/#educations"
+#  - title: "Educations"
+#     url: "/puguJin/#educations"
 
-  - title: "Internships"
-     url: "/puguJin/#internships"
+#  - title: "Internships"
+#     url: "/puguJin/#internships"
 
-  - title: "Awards"
-     url: "/puguJin/#awards"
+#  - title: "Awards"
+#     url: "/puguJin/#awards"
 
   - title: "CV"
     url: "/puguJin/files/Hongye_CV.pdf"

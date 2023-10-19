@@ -64,6 +64,9 @@ My research interests lie in the general area of machine learning, NLP and data 
 - [**APWeb-WAIM2018**] [Representation learning with depth and breadth for recommendation using multi-view data](http://www.shichuan.org/doc/57.pdf). **Xiaotian Han**, Chuan Shi, Lei Zheng, S Yu Philip, Jianxin Li, Yuanfu Lu. 
 - [**ADMA2018**][Anomalous Trajectory Detection Using Recurrent Neural Network](http://shichuan.org/doc/60.pdf). Li Song, Ruijia Wang, Ding Xiao, **Xiaotian Han**, Yanan Cai, Chuan Shi. (<span style="color:red">Best paper award</span>) -->
 <!-- - [****][](). -->
+- Learning Alignment and Compactness in Collaborative Filtering
+  - Huiyuan Chen, Vivian Lai, **Hongye Jin**, Zhimeng Jiang, Mahashweta Das, Xia Hu
+  - WSDM2024
 - Chasing Fairness under Distribution Shift: a Model Weight Perturbation Approach [[PDF]](https://arxiv.org/pdf/2303.03300.pdf)
   - Zhimeng Jiang<sup>\*</sup>, Xiaotian Han<sup>\*</sup>, **Hongye Jin**, Guanchu Wang, Rui Chen, Na Zou, Xia Hu.
   - NeurIPS2023
@@ -149,6 +152,6 @@ My research interests lie in the general area of machine learning, NLP and data 
 
 
 ---
-Last updated on Sept 30, 2023.
+Last updated on Oct 19, 2023.
 
 
