@@ -142,8 +142,7 @@ My research interests lie in the general area of machine learning, NLP and data 
 
 <div class="footer" hidden="hidden">
      	<div class="center">
-		<script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=mNNM1sdP4CnxosU-PUV8oiDb47Rd5qpkzNpWibvHm88"></script>
-     
+      <a href="https://clustrmaps.com/site/1bx06"  title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=mNNM1sdP4CnxosU-PUV8oiDb47Rd5qpkzNpWibvHm88&cl=ffffff" /></a>     
 	</div>
  </div>
 
