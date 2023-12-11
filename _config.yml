@@ -6,7 +6,7 @@
 # `jekyll serve`. If you change this file, please restart the server process.
 
 # Site Settings
-title                    : "Hongye Jin"
+title                    : "Hongye(Hoyt) Jin"
 description              : "jhy0410[AT]tamu.edu"
 repository               : "mooler0410/puguJin.github.io"
 google_scholar_stats_use_cdn : false
@@ -21,7 +21,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 
 # Site Author
 author:
-  name             : "Hongye Jin"
+  name             : "Hongye(Hoyt) Jin"
   avatar           : "images/Hy.JPG"
   bio              : "CS Ph.D. student at Texas A&M Unversity"
   location         : "College Station, Texas"
