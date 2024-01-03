@@ -23,11 +23,12 @@ I am currently a 4th-year Ph.D. student in the <a href="https://engineering.tamu
 
 <span style="color:red">**I am actively seeking an internship position for 2024, available in either the Spring, Summer, or Fall. Please kindly [contact me](mailto:jhy0410@tamu.edu) if there is a good fit.**</span>
 
-My research interests lie in the general area of machine learning, NLP and data mining.
+My research interests lie in LLMs, the general area of machine learning.
 
 
 
 # News
+- *2024.01*: Our new paper about LLMs' context window extention is now avaivale at Arxiv. In this paper, we propose Self-Extend to elicit LLMs' inherent long context ability without any fine-tuning. It significantly improve the long contextn performance of LLMs (Llama-2 families, Mistral, and the newly released SOLAR) and even can beat many fine-tuning based long-context method! Go for a check:[Self-Extend](https://arxiv.org/abs/2401.01325)! Any discussion is welcomed! 
 - *2023.09*: One paper accepted by NeurIPS2023.
 - *2023.05*: One paper accepted by TMLR, [Retiring ∆DP](https://openreview.net/forum?id=LjDFIWWVVa)!
 - *2023.04*: New preprint [Survey on LLMs](https://arxiv.org/abs/2304.13712)!
@@ -68,6 +69,9 @@ My research interests lie in the general area of machine learning, NLP and data 
 - [**APWeb-WAIM2018**] [Representation learning with depth and breadth for recommendation using multi-view data](http://www.shichuan.org/doc/57.pdf). **Xiaotian Han**, Chuan Shi, Lei Zheng, S Yu Philip, Jianxin Li, Yuanfu Lu. 
 - [**ADMA2018**][Anomalous Trajectory Detection Using Recurrent Neural Network](http://shichuan.org/doc/60.pdf). Li Song, Ruijia Wang, Ding Xiao, **Xiaotian Han**, Yanan Cai, Chuan Shi. (<span style="color:red">Best paper award</span>) -->
 <!-- - [****][](). -->
+- LLM Maybe LongLM: Self-Extend LLM Context Window Without Tuning
+  - **Hongye Jin**<sup>\*</sup>, Xiaotian Hann<sup>\*</sup>, Jingfeng Yang, Zhimeng Jiang, Zirui Liu, Chia-Yuan Chang, Huiyuan Chen, Xia Hu
+  - Preprint, 2024
 - Learning Alignment and Compactness in Collaborative Filtering
   - Huiyuan Chen, Vivian Lai, **Hongye Jin**, Zhimeng Jiang, Mahashweta Das, Xia Hu
   - WSDM2024
@@ -156,6 +160,6 @@ My research interests lie in the general area of machine learning, NLP and data 
 
 
 ---
-Last updated on Oct 19, 2023.
+Last updated on Jan 02, 2024.
 
 
