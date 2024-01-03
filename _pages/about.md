@@ -69,7 +69,7 @@ My research interests lie in LLMs, the general area of machine learning.
 - [**APWeb-WAIM2018**] [Representation learning with depth and breadth for recommendation using multi-view data](http://www.shichuan.org/doc/57.pdf). **Xiaotian Han**, Chuan Shi, Lei Zheng, S Yu Philip, Jianxin Li, Yuanfu Lu. 
 - [**ADMA2018**][Anomalous Trajectory Detection Using Recurrent Neural Network](http://shichuan.org/doc/60.pdf). Li Song, Ruijia Wang, Ding Xiao, **Xiaotian Han**, Yanan Cai, Chuan Shi. (<span style="color:red">Best paper award</span>) -->
 <!-- - [****][](). -->
-- LLM Maybe LongLM: Self-Extend LLM Context Window Without Tuning
+- LLM Maybe LongLM: Self-Extend LLM Context Window Without Tuning [[PDF]](https://arxiv.org/abs/2401.01325s)
   - **Hongye Jin**<sup>\*</sup>, Xiaotian Hann<sup>\*</sup>, Jingfeng Yang, Zhimeng Jiang, Zirui Liu, Chia-Yuan Chang, Huiyuan Chen, Xia Hu
   - Preprint, 2024
 - Learning Alignment and Compactness in Collaborative Filtering
