@@ -28,7 +28,7 @@ My research interests lie in LLMs, the general area of machine learning.
 
 
 # News
-- *2024.01*: Our new paper about LLMs' context window extention is now avaivale at Arxiv. In this paper, we propose Self-Extend to elicit LLMs' inherent long context ability without any fine-tuning. It significantly improve the long contextn performance of LLMs (Llama-2 families, Mistral, and the newly released SOLAR) and even can beat many fine-tuning based long-context method! Go for a check:[Self-Extend](https://arxiv.org/abs/2401.01325)! Any discussion is welcomed! 
+- *2024.01*: Our new paper about LLMs' context window extention is now avaivale at Arxiv. In this paper, we propose Self-Extend to **elicit LLMs' inherent long context ability without any fine-tuning**. It significantly improve the long contextn performance of LLMs and even can beat many fine-tuning based long-context method. Go for a check: [Self-Extend](https://arxiv.org/abs/2401.01325) 
 - *2023.09*: One paper accepted by NeurIPS2023.
 - *2023.05*: One paper accepted by TMLR, [Retiring ∆DP](https://openreview.net/forum?id=LjDFIWWVVa)!
 - *2023.04*: New preprint [Survey on LLMs](https://arxiv.org/abs/2304.13712)!
