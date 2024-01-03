@@ -21,7 +21,7 @@ Hi there!
 
 I am currently a 4th-year Ph.D. student in the <a href="https://engineering.tamu.edu/cse/index.html" target="_blank">Department of Computer Science and Engineering</a> at <a href="https://www.tamu.edu" target="_blank">Texas A&M University</a>. I am working at the DATA Lab under the supervision of Prof. <a href="https://cs.rice.edu/~xh37/index.html" target="_blank">Xia (Ben) Hu</a>.
 
-<span style="color:red">**I am actively seeking an internship position for 2024, available in either the Spring, Summer, or Fall. Please kindly [contact me](mailto:jhy0410@tamu.edu) if there is a good fit.**</span>
+<span style="color:red">**I am actively seeking an internship position for 2024, available in Spring, Summer, and Fall. Please kindly [contact me](mailto:jhy0410@tamu.edu) if there is a good fit.**</span>
 
 My research interests lie in LLMs, the general area of machine learning.
 
