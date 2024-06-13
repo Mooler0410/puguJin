@@ -1,22 +1,13 @@
 # main links links
 main:
-  - title: "About Me"
-    url: "/#about-me"
+#  - title: "Educations"
+#     url: "/puguJin/#educations"
 
-  - title: "News"
-    url: "/#-news"
+#  - title: "Internships"
+#     url: "/puguJin/#internships"
 
-  - title: "Publications"
-    url: "/#-publications"
+#  - title: "Awards"
+#     url: "/puguJin/#awards"
 
-  - title: "Honors and Awards"
-    url: "/#-honors-and-awards"
-
-  - title: "Educations"
-    url: "/#-educations"
-
-  - title: "Invited Talks"
-    url: "/#-invited-talks"
-
-  - title: "Internships"
-    url: "/#-internships"
+  - title: "CV"
+    url: "/puguJin/files/Hongye_CV.pdf"
