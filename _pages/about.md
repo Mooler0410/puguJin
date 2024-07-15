@@ -25,6 +25,7 @@ I am currently a 4th-year Ph.D. student in the <a href="https://engineering.tamu
 My research interests focus on LLMs, particularly long context and efficiency.
 
 <span style="color:red">I am actively seeking an internship position for Fall 2024. Please [contact me](mailto:jhy0410@tamu.edu) if there is a good fit.</span>
+
 <span style="color:blue">I will attend ICML24 in Vienna. Feel free to catch up!</span>
 
 (This page was last updated on July 14, 2024.)
