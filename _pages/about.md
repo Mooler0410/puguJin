@@ -21,14 +21,19 @@ Hi there!
 
 I am currently a 4th-year Ph.D. student in the <a href="https://engineering.tamu.edu/cse/index.html" target="_blank">Department of Computer Science and Engineering</a> at <a href="https://www.tamu.edu" target="_blank">Texas A&M University</a>. I am working at the DATA Lab under the supervision of Prof. <a href="https://cs.rice.edu/~xh37/index.html" target="_blank">Xia (Ben) Hu</a>.
 
-<span style="color:red">**I am actively seeking an internship position for 2024, available in Spring, Summer, and Fall. Please kindly [contact me](mailto:jhy0410@tamu.edu) if there is a good fit.**</span>
 
-My research interests lie in LLMs, the general area of machine learning.
+My research interests focus on LLMs, particularly long context and efficiency.
 
+<span style="color:red">I am actively seeking an internship position for Fall 2024. Please [contact me](mailto:jhy0410@tamu.edu) if there is a good fit.</span>
+<span style="color:blue">I will attend ICML24 in Vienna. Feel free to catch up!</span>
+
+(This page was last updated on July 14, 2024.)
 
 
 # News
-- *2024.06* [SelfExtend](https://arxiv.org/abs/2401.01325) is acceppted as 
+- *2024.06*:  [LLM Maybe LongLM (SelfExtend)](https://arxiv.org/abs/2401.01325) has been selected as <span style="color:red">Spotlight (3.5%)</span> at ICML2024!
+- *2024.05*:  Started an internship at Amazon Rufus. Happy to chat if you’re in Seattle!
+- *2024.05*:  [KiVi (2-bit training free KV cache quantization)](https://arxiv.org/abs/2401.01325) has been accepted by ICML2024! Congrats to Zirui Liu and Jiayi Yuan!
 - *2024.01*: Our new paper about LLMs' context window extention is now avaivale at Arxiv: [LLM Maybe LongLM: Self-Extend LLM Context Window Without Tuning](https://arxiv.org/abs/2401.01325). We propose Self-Extend to **elicit LLMs' inherent long context ability without any fine-tuning**. It significantly improve the long contextn performance of LLMs and even can beat many fine-tuning based long-context method!
 - *2023.09*: One paper accepted by NeurIPS2023.
 - *2023.05*: One paper accepted by TMLR, [Retiring ∆DP](https://openreview.net/forum?id=LjDFIWWVVa)!
@@ -70,9 +75,13 @@ My research interests lie in LLMs, the general area of machine learning.
 - [**APWeb-WAIM2018**] [Representation learning with depth and breadth for recommendation using multi-view data](http://www.shichuan.org/doc/57.pdf). **Xiaotian Han**, Chuan Shi, Lei Zheng, S Yu Philip, Jianxin Li, Yuanfu Lu. 
 - [**ADMA2018**][Anomalous Trajectory Detection Using Recurrent Neural Network](http://shichuan.org/doc/60.pdf). Li Song, Ruijia Wang, Ding Xiao, **Xiaotian Han**, Yanan Cai, Chuan Shi. (<span style="color:red">Best paper award</span>) -->
 <!-- - [****][](). -->
+
 - LLM Maybe LongLM: Self-Extend LLM Context Window Without Tuning [[PDF]](https://arxiv.org/abs/2401.01325s)
   - **Hongye Jin**<sup>\*</sup>, Xiaotian Hann<sup>\*</sup>, Jingfeng Yang, Zhimeng Jiang, Zirui Liu, Chia-Yuan Chang, Huiyuan Chen, Xia Hu
-  - Preprint, 2024
+  - ICML2024 (Spotlight)
+- Kivi: A tuning-free asymmetric 2bit quantization for kv cache [[PDF]](https://arxiv.org/pdf/2402.02750)
+  - Zirui Liu<sup>\*</sup>, Jiayi Yuan<sup>\*</sup>, **Hongye Jin**, Shaochen Zhong, Zhaozhuo Xu, Vladimir Braverman, Beidi Chen, Xia Hu
+  - ICML2024 
 - Learning Alignment and Compactness in Collaborative Filtering
   - Huiyuan Chen, Vivian Lai, **Hongye Jin**, Zhimeng Jiang, Mahashweta Das, Xia Hu
   - WSDM2024
