@@ -28,6 +28,7 @@ My research interests focus on LLMs, particularly long context and efficiency.
 
 
 # News
+- *2026.06*: Check our first blog about MoE training!  [The death of z-loss in modern LLMs: a story of expert collapse and specialization](https://alltoall.notion.site/z-loss-in-llms-a-story-of-expert-collapse-and-specialization).
 - *2024.06*:  [LLM Maybe LongLM (SelfExtend)](https://arxiv.org/abs/2401.01325) has been selected as <span style="color:red">Spotlight (3.5%)</span> at ICML2024!
 - *2024.05*:  Started an internship at Amazon Rufus. Happy to chat if you’re in Seattle!
 - *2024.05*:  [KiVi (2-bit training free KV cache quantization)](https://arxiv.org/abs/2401.01325) has been accepted by ICML2024! Congrats to Zirui Liu and Jiayi Yuan!
