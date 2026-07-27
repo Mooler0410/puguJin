@@ -19,12 +19,7 @@ redirect_from:
 
 Hi there!
 
-I am currently a 4th-year Ph.D. student in the <a href="https://engineering.tamu.edu/cse/index.html" target="_blank">Department of Computer Science and Engineering</a> at <a href="https://www.tamu.edu" target="_blank">Texas A&M University</a>. I am working at the DATA Lab under the supervision of Prof. <a href="https://cs.rice.edu/~xh37/index.html" target="_blank">Xia (Ben) Hu</a>.
-
-
-My research interests focus on LLMs, particularly long context and efficiency.
-
-(This page was last updated on Aug 26, 2024.)
+My research interests focus on LLMs.
 
 
 # News
