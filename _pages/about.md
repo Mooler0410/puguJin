@@ -19,7 +19,14 @@ redirect_from:
 
 Hi there!
 
-My research interests focus on LLMs.
+I am an Applied Scientist at Amazon Rufus. I am interested in understanding how foundation models learn.
+
+My research focuses on the training dynamics of large language models, particularly sparse/Mixture-of-Experts (MoE) models and long-context training. At Amazon, I have worked on the pretraining of 100B–800B ultra-sparse MoE models, including expert learning dynamics, training stability, and long-context scaling.
+More recently, I have been extending work to post-training and reinforcement learning, with a focus on SFT/RL infrastructure, data curations, and how training dynamics change beyond pretraining.
+
+I received my Ph.D. in Computer Science from Texas A&M University, advised by Prof. Xia (Ben) Hu. And I received my B.E. in Computer Science from Peking University in June 2020.
+
+
 
 
 # News
@@ -120,6 +127,9 @@ My research interests focus on LLMs.
 
 
 # Internships
+- Amazon, Palo Alto, CA. *May 2024 – Dec 2024*
+  - Research Intern
+  - Long context for LLMs. 
 - Visa Research, Palo Alto, CA.  *Sept 2022 – Dec 2022*
   - Research Intern
   - Out-of-distribution Generalization of Graph Neural Networks
@@ -131,7 +141,7 @@ My research interests focus on LLMs.
 
 
 # Educations
-- *Aug. 2020 - now*, Ph.D. Student, Computer Science, Texas A&M University.
+- *Aug. 2020 - May. 2025*, Ph.D. Student, Computer Science, Texas A&M University.
 - *Sept. 2015 - July. 2020*, Bacheler Degree, Computer Science, Peking University.
 
 
