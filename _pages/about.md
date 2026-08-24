@@ -23,7 +23,7 @@ My research interests focus on LLMs.
 
 
 # News
-- *2026.07*: The second blog on how to prevent expert collapse in ultra sparse MoE(8/768) training is out. [Saving Lower Layer MoE Experts](https://alltoall.notion.site/save-lower-layer-moe-experts-llal)
+- *2026.08*: Our blog on how to prevent expert collapse in ultra sparse MoE(8/768) training is out. [Mitigate Silent Expert Death in Ultra-Sparse MoE](https://alltoall.notion.site/save-lower-layer-moe-experts-llal) A small step towards more sparse models! 
 - *2026.06*: Check our first blog about MoE training!  [The death of z-loss in modern LLMs: a story of expert collapse and specialization](https://alltoall.notion.site/z-loss-in-llms-a-story-of-expert-collapse-and-specialization).
 - *2024.06*:  [LLM Maybe LongLM (SelfExtend)](https://arxiv.org/abs/2401.01325) has been selected as <span style="color:red">Spotlight (3.5%)</span> at ICML2024!
 - *2024.05*:  Started an internship at Amazon Rufus. Happy to chat if you’re in Seattle!
