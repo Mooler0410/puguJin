@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<style>
+  .notion-blog-header { margin-bottom: 2rem; }
+  .notion-blog-header h1 { margin-bottom: .45rem; }
+  .notion-blog-source { font-size: .85rem; opacity: .65; }
+  .notion-blog-content img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
+  .notion-blog-content table { display: block; max-width: 100%; overflow-x: auto; }
+  .notion-blog-content blockquote { border-left: 4px solid #ddd; padding-left: 1rem; }
+  .notion-blog-content mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+</style>
+
+<header class="notion-blog-header">
+  <h1>{{ page.title }}</h1>
+  <div class="notion-blog-source">
+    Static mirror · <a href="{{ page.source_url }}">original on Notion</a>
+  </div>
+</header>
+
+<div class="notion-blog-content">
+  {{ content }}
+</div>
+
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script defer src="{{ '/assets/blog/vendor/tex-svg.js' | relative_url }}"></script>
