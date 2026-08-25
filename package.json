@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "sync:notion": "node scripts/sync-notion-blog.mjs"
+  },
+  "dependencies": {
+    "notion-client": "^7.8.2",
+    "notion-x-to-md": "^1.4.4"
+  }
+}
