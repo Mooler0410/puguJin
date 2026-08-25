@@ -1,0 +1,40 @@
+name: Sync Notion blog
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 */6 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install sync dependencies
+        run: npm install
+
+      - name: Sync public Notion page
+        run: npm run sync:notion
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add _pages/blog/llal.md assets/blog/llal assets/blog/vendor/tex-svg.js package-lock.json
+          if git diff --cached --quiet; then
+            echo "No Notion changes detected."
+            exit 0
+          fi
+          git commit -m "Sync LLAL blog from Notion"
+          git push
