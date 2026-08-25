@@ -5,6 +5,7 @@
     "sync:notion": "node scripts/sync-notion-blog.mjs"
   },
   "dependencies": {
+    "mathjax-full": "^3.2.2",
     "notion-client": "^8.0.6",
     "notion-x-to-md": "^8.0.6"
   }
