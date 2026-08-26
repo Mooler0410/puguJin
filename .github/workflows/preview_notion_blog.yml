@@ -1,0 +1,43 @@
+name: Preview Notion blog
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install sync dependencies
+        run: npm install
+
+      - name: Sync public Notion page
+        run: npm run sync:notion
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+
+      - name: Build Jekyll preview
+        run: bundle exec jekyll build --baseurl ""
+
+      - name: Upload preview site
+        uses: actions/upload-artifact@v4
+        with:
+          name: llal-blog-preview
+          path: _site
+          if-no-files-found: error
+          retention-days: 7
