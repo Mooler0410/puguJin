@@ -22,22 +22,6 @@ function htmlDecodeUrl(url) {
   return url.replaceAll('&amp;', '&')
 }
 
-function isNotionAsset(url) {
-  try {
-    const parsed = new URL(htmlDecodeUrl(url))
-    const host = parsed.hostname.toLowerCase()
-    return (
-      ((host === 'notion.so' || host.endsWith('.notion.so') ||
-        host === 'notion.com' || host.endsWith('.notion.com')) &&
-        parsed.pathname.startsWith('/image/')) ||
-      host === 'file.notion.so' || host === 'file.notion.com' ||
-      host.startsWith('prod-files-secure.')
-    )
-  } catch {
-    return false
-  }
-}
-
 function resolveDownloadUrl(rawUrl) {
   const url = htmlDecodeUrl(rawUrl)
   try {
@@ -60,14 +44,11 @@ function resolveDownloadUrl(rawUrl) {
   return url
 }
 
-// notion-x-to-md emits most images as Markdown, but some Notion blocks become raw
-// HTML <img> tags. Collect URL occurrences from both forms so every Notion-served
-// image is copied into this repository.
-const markdownImageUrls = [...markdown.matchAll(/!\[[^\]]*\]\((https?:\/\/[^)]+)\)/g)]
-  .map((m) => m[1])
-const htmlImageUrls = [...markdown.matchAll(/<img\b[^>]*\bsrc=["'](https?:\/\/[^"']+)["'][^>]*>/gi)]
-  .map((m) => m[1])
-const notionImageUrls = [...new Set([...markdownImageUrls, ...htmlImageUrls].filter(isNotionAsset))]
+// Scan Notion image URLs directly instead of trying to parse Markdown image
+// syntax. Figure captions can themselves contain brackets such as [Exp1],
+// which makes syntax-based regexes fragile.
+const notionImagePattern = /https:\/\/(?:www\.)?notion\.(?:so|com)\/image\/[^\s)"'<>]+/g
+const notionImageUrls = [...new Set(markdown.match(notionImagePattern) || [])]
 
 let localized = 0
 const failures = []
