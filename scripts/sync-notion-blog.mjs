@@ -18,7 +18,28 @@ await mkdir(ASSET_DIR, { recursive: true })
 await mkdir(VENDOR_DIR, { recursive: true })
 await mkdir(path.dirname(OUTPUT_FILE), { recursive: true })
 
-function resolveDownloadUrl(url) {
+function htmlDecodeUrl(url) {
+  return url.replaceAll('&amp;', '&')
+}
+
+function isNotionAsset(url) {
+  try {
+    const parsed = new URL(htmlDecodeUrl(url))
+    const host = parsed.hostname.toLowerCase()
+    return (
+      ((host === 'notion.so' || host.endsWith('.notion.so') ||
+        host === 'notion.com' || host.endsWith('.notion.com')) &&
+        parsed.pathname.startsWith('/image/')) ||
+      host === 'file.notion.so' || host === 'file.notion.com' ||
+      host.startsWith('prod-files-secure.')
+    )
+  } catch {
+    return false
+  }
+}
+
+function resolveDownloadUrl(rawUrl) {
+  const url = htmlDecodeUrl(rawUrl)
   try {
     const parsed = new URL(url)
     const host = parsed.hostname.toLowerCase()
@@ -39,14 +60,21 @@ function resolveDownloadUrl(url) {
   return url
 }
 
-const imagePattern = /!\[([^\]]*)\]\((https?:\/\/[^)]+)\)/g
-const matches = [...markdown.matchAll(imagePattern)]
+// notion-x-to-md emits most images as Markdown, but some Notion blocks become raw
+// HTML <img> tags. Collect URL occurrences from both forms so every Notion-served
+// image is copied into this repository.
+const markdownImageUrls = [...markdown.matchAll(/!\[[^\]]*\]\((https?:\/\/[^)]+)\)/g)]
+  .map((m) => m[1])
+const htmlImageUrls = [...markdown.matchAll(/<img\b[^>]*\bsrc=["'](https?:\/\/[^"']+)["'][^>]*>/gi)]
+  .map((m) => m[1])
+const notionImageUrls = [...new Set([...markdownImageUrls, ...htmlImageUrls].filter(isNotionAsset))]
+
 let localized = 0
 const failures = []
 
-for (let i = 0; i < matches.length; i++) {
-  const [full, alt, url] = matches[i]
-  const downloadUrl = resolveDownloadUrl(url)
+for (let i = 0; i < notionImageUrls.length; i++) {
+  const sourceUrl = notionImageUrls[i]
+  const downloadUrl = resolveDownloadUrl(sourceUrl)
   try {
     const response = await fetch(downloadUrl, {
       headers: { 'User-Agent': 'Mozilla/5.0 (compatible; static-blog-sync/1.0)' }
@@ -66,19 +94,17 @@ for (let i = 0; i < matches.length; i++) {
     const bytes = Buffer.from(await response.arrayBuffer())
     await writeFile(localPath, bytes)
 
-    markdown = markdown.replace(
-      full,
-      `![${alt}]({{ '/${ASSET_DIR}/${filename}' | relative_url }})`
-    )
+    const localUrl = `{{ '/${ASSET_DIR}/${filename}' | relative_url }}`
+    markdown = markdown.split(sourceUrl).join(localUrl)
     localized++
   } catch (error) {
-    failures.push({ url, error: error.message })
-    console.error(`Could not localize image ${url}:`, error.message)
+    failures.push({ url: sourceUrl, error: error.message })
+    console.error(`Could not localize image ${sourceUrl}:`, error.message)
   }
 }
 
 if (failures.length) {
-  throw new Error(`Failed to localize ${failures.length}/${matches.length} Notion images; refusing to publish a mirror with runtime Notion dependencies.`)
+  throw new Error(`Failed to localize ${failures.length}/${notionImageUrls.length} Notion images; refusing to publish a mirror with runtime Notion dependencies.`)
 }
 
 // Bundle MathJax into the repository so the rendered blog has no runtime CDN dependency.
@@ -93,4 +119,4 @@ markdown = markdown.replace(/^#\s+Mitigate Silent Expert Death in Ultra-Sparse M
 const frontMatter = `---\nlayout: notion_blog\ntitle: "Mitigate Silent Expert Death in Ultra-Sparse MoE"\npermalink: /blog/llal/\nsource_url: "${SOURCE_URL}"\n---\n\n`
 
 await writeFile(OUTPUT_FILE, frontMatter + markdown.trim() + '\n', 'utf8')
-console.log(`Localized ${localized}/${matches.length} images and wrote ${OUTPUT_FILE}`)
+console.log(`Localized ${localized}/${notionImageUrls.length} Notion images and wrote ${OUTPUT_FILE}`)
