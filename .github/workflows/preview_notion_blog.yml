@@ -3,8 +3,6 @@ name: Preview Notion blog
 on:
   pull_request:
     branches: [main]
-  push:
-    branches: [feat/notion-static-blog]
   workflow_dispatch:
 
 permissions:
