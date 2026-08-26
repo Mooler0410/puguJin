@@ -1,36 +1,62 @@
 ---
-layout: default
+layout: compress
 ---
 
-<style>
-  .notion-blog-header { margin-bottom: 2rem; }
-  .notion-blog-header h1 { margin-bottom: .45rem; }
-  .notion-blog-source { font-size: .85rem; opacity: .65; }
-  .notion-blog-content img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
-  .notion-blog-content table { display: block; max-width: 100%; overflow-x: auto; }
-  .notion-blog-content blockquote { border-left: 4px solid #ddd; padding-left: 1rem; }
-  .notion-blog-content mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
-</style>
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    {% include seo.html %}
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="cleartype" content="on">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+    <script>
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+    </script>
+    <style>
+      .notion-blog-page { max-width: 980px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+      .notion-blog-header { margin-bottom: 2rem; }
+      .notion-blog-header h1 { margin-bottom: .45rem; }
+      .notion-blog-source { font-size: .85rem; opacity: .65; }
+      .notion-blog-content { font-size: 1rem; line-height: 1.7; }
+      .notion-blog-content img { display: block; max-width: 100%; height: auto; margin: 1.5rem auto; }
+      .notion-blog-content table { display: block; max-width: 100%; overflow-x: auto; }
+      .notion-blog-content blockquote { border-left: 4px solid #ddd; padding-left: 1rem; }
+      .notion-blog-content mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; }
+    </style>
+  </head>
 
-<header class="notion-blog-header">
-  <h1>{{ page.title }}</h1>
-  <div class="notion-blog-source">
-    Static mirror · <a href="{{ page.source_url }}">original on Notion</a>
-  </div>
-</header>
+  <body>
+    {% include browser-upgrade.html %}
+    {% include masthead.html %}
 
-<div class="notion-blog-content">
-  {{ content }}
-</div>
+    <main class="notion-blog-page" role="main">
+      <header class="notion-blog-header">
+        <h1>{{ page.title }}</h1>
+        <div class="notion-blog-source">
+          Static mirror · <a href="{{ page.source_url }}">original on Notion</a>
+        </div>
+      </header>
 
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true
-    },
-    svg: { fontCache: 'global' }
-  };
-</script>
-<script defer src="{{ '/assets/blog/vendor/tex-svg.js' | relative_url }}"></script>
+      <article class="notion-blog-content" itemscope itemtype="http://schema.org/CreativeWork">
+        {{ content }}
+      </article>
+    </main>
+
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+          processEscapes: true
+        },
+        svg: { fontCache: 'global' }
+      };
+    </script>
+    <script defer src="{{ '/assets/blog/vendor/tex-svg.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/main.min.js' | relative_url }}"></script>
+  </body>
+</html>
