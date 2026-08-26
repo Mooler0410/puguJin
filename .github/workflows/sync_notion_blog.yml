@@ -2,6 +2,13 @@ name: Sync Notion blog
 
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/sync-notion-blog.mjs'
+      - 'package.json'
+      - '.github/workflows/sync_notion_blog.yml'
+      - '_layouts/notion_blog.html'
   schedule:
     - cron: '17 */6 * * *'
 
