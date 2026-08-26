@@ -18,13 +18,39 @@ await mkdir(ASSET_DIR, { recursive: true })
 await mkdir(VENDOR_DIR, { recursive: true })
 await mkdir(path.dirname(OUTPUT_FILE), { recursive: true })
 
+function resolveDownloadUrl(url) {
+  try {
+    const parsed = new URL(url)
+    const host = parsed.hostname.toLowerCase()
+    if (
+      (host === 'notion.so' || host.endsWith('.notion.so') ||
+       host === 'notion.com' || host.endsWith('.notion.com')) &&
+      parsed.pathname.startsWith('/image/')
+    ) {
+      const original = decodeURIComponent(parsed.pathname.slice('/image/'.length))
+      const blockId = parsed.searchParams.get('id')
+      return page.signed_urls?.[original] ||
+        (blockId ? page.signed_urls?.[blockId] : undefined) ||
+        url
+    }
+  } catch {
+    // Fall through to the original URL.
+  }
+  return url
+}
+
 const imagePattern = /!\[([^\]]*)\]\((https?:\/\/[^)]+)\)/g
 const matches = [...markdown.matchAll(imagePattern)]
+let localized = 0
+const failures = []
 
 for (let i = 0; i < matches.length; i++) {
   const [full, alt, url] = matches[i]
+  const downloadUrl = resolveDownloadUrl(url)
   try {
-    const response = await fetch(url)
+    const response = await fetch(downloadUrl, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; static-blog-sync/1.0)' }
+    })
     if (!response.ok) throw new Error(`${response.status} ${response.statusText}`)
 
     const type = response.headers.get('content-type') || ''
@@ -44,9 +70,15 @@ for (let i = 0; i < matches.length; i++) {
       full,
       `![${alt}]({{ '/${ASSET_DIR}/${filename}' | relative_url }})`
     )
+    localized++
   } catch (error) {
-    console.warn(`Could not localize image ${url}:`, error.message)
+    failures.push({ url, error: error.message })
+    console.error(`Could not localize image ${url}:`, error.message)
   }
+}
+
+if (failures.length) {
+  throw new Error(`Failed to localize ${failures.length}/${matches.length} Notion images; refusing to publish a mirror with runtime Notion dependencies.`)
 }
 
 // Bundle MathJax into the repository so the rendered blog has no runtime CDN dependency.
@@ -61,4 +93,4 @@ markdown = markdown.replace(/^#\s+Mitigate Silent Expert Death in Ultra-Sparse M
 const frontMatter = `---\nlayout: notion_blog\ntitle: "Mitigate Silent Expert Death in Ultra-Sparse MoE"\npermalink: /blog/llal/\nsource_url: "${SOURCE_URL}"\n---\n\n`
 
 await writeFile(OUTPUT_FILE, frontMatter + markdown.trim() + '\n', 'utf8')
-console.log(`Synced ${matches.length} images and wrote ${OUTPUT_FILE}`)
+console.log(`Localized ${localized}/${matches.length} images and wrote ${OUTPUT_FILE}`)
