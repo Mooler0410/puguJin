@@ -1,0 +1,41 @@
+name: Patch LLAL static-copy note
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/patch_llal_note.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  patch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Update source note
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('blog/llal/index.html')
+          s = p.read_text()
+          old_css = '.notion-source-note { margin: -0.35rem 0 1.25rem; font-size: 0.9rem; opacity: 0.6; }\n.notion-source-note a { text-decoration: none; }\n.notion-source-note a:hover { text-decoration: underline; }'
+          new_css = '.notion-source-note { margin: 0.25rem 0 1.5rem; padding: 0.75rem 1rem; border: 1.5px solid currentColor; border-radius: 6px; font-size: 0.95rem; font-weight: 600; opacity: 1; }\n.notion-source-note a { text-decoration: underline; font-weight: 700; }\n.notion-source-note a:hover { text-decoration-thickness: 2px; }'
+          old_html = '<p class="notion-source-note"><a href="https://alltoall.notion.site/save-lower-layer-moe-experts-llal">Original Notion page ↗</a></p>'
+          new_html = '<p class="notion-source-note">This is a static copy of the <a href="https://alltoall.notion.site/save-lower-layer-moe-experts-llal">original Notion page</a>.</p>'
+          if old_css not in s or old_html not in s:
+              raise SystemExit('Expected current source-note markup not found')
+          s = s.replace(old_css, new_css, 1).replace(old_html, new_html, 1)
+          p.write_text(s)
+          PY
+
+      - name: Commit and self-clean
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git rm .github/workflows/patch_llal_note.yml
+          git add blog/llal/index.html
+          git commit -m "Highlight static copy notice"
+          git push
