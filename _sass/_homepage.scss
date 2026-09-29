@@ -81,14 +81,6 @@
       line-height: 1.45;
     }
 
-    h3 a {
-      text-decoration: none;
-    }
-
-    h3 a:hover {
-      text-decoration: underline;
-    }
-
     .work-topic {
       margin: 0 0 0.3em;
       color: #61666c;
@@ -102,9 +94,13 @@
     }
 
     .work-meta {
-      margin: 0;
+      margin: 0 0 0.4em;
       color: #61666c;
       font-size: 0.85em;
+
+      a {
+        font-weight: 600;
+      }
     }
   }
 
