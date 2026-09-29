@@ -34,7 +34,7 @@ At Amazon, I have worked on pretraining 100B–800B MoE models, studying expert 
     <li>
       <p class="work-topic">Ultra-sparse MoE training</p>
       <h3>Mitigate Silent Expert Death in Ultra-Sparse MoE</h3>
-      <p class="work-meta"><a href="{{ '/blog/llal/' | relative_url }}" target="_self">Blog-1</a> · <a href="{{ '/blog/llal-change/' | relative_url }}" target="_self">Blog-2</a></p>
+      <p class="work-meta"><a href="{{ '/blog/llal/' | relative_url }}" target="_self">Blog-1</a> · <a href="https://mooler0410.github.io/puguJin/blog/llal-change/" target="_self">Blog-2</a></p>
       <p class="work-description">Understanding expert collapse in lower MoE layers and mitigating it with early auxiliary LM supervision (LLAL).</p>
     </li>
     <li>
