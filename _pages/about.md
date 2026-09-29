@@ -12,7 +12,7 @@ redirect_from:
 
 I am an Applied Scientist at Amazon Rufus. I study how large language models learn and how they can learn better.
 
-At Amazon, I have worked on pretraining 100B–800B MoE models, studying expert learning dynamics and training stability. My recent work extends to efficient reasoning, multi-turn agent reinforcement learning, and context management.
+At Amazon, I have worked on pretraining 100B–800B MoE models, studying expert learning dynamics and training stability. More recently, I have been extending this work to post-training and reinforcement learning, with a focus on SFT/RL infrastructure, data curation, and how training dynamics change beyond pretraining.
 
 # Experience
 
