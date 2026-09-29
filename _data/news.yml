@@ -1,0 +1,18 @@
+- date: "2026-08"
+  content: 'Our blog on preventing expert collapse in ultra-sparse MoE (8/768) training is out: [Mitigate Silent Expert Death in Ultra-Sparse MoE](/puguJin/blog/llal/). A small step towards more sparse models!'
+- date: "2026-06"
+  content: 'Check out our first blog about MoE training: [The death of z-loss in modern LLMs: a story of expert collapse and specialization](https://alltoall.notion.site/z-loss-in-llms-a-story-of-expert-collapse-and-specialization).'
+- date: "2024-06"
+  content: '[LLM Maybe LongLM (SelfExtend)](https://arxiv.org/abs/2401.01325) has been selected as **Spotlight (3.5%)** at ICML 2024!'
+- date: "2024-05"
+  content: 'Started an internship at Amazon Rufus. Happy to chat if you’re in Seattle!'
+- date: "2024-05"
+  content: '[KIVI (2-bit, tuning-free KV cache quantization)](https://arxiv.org/abs/2402.02750) has been accepted by ICML 2024! Congrats to Zirui Liu and Jiayi Yuan!'
+- date: "2024-01"
+  content: 'Our paper on extending LLM context windows is now available on arXiv: [LLM Maybe LongLM: Self-Extend LLM Context Window Without Tuning](https://arxiv.org/abs/2401.01325). SelfExtend elicits LLMs’ inherent long-context capabilities without fine-tuning.'
+- date: "2023-09"
+  content: 'One paper accepted by NeurIPS 2023.'
+- date: "2023-05"
+  content: 'One paper accepted by TMLR: [Retiring ∆DP](https://openreview.net/forum?id=LjDFIWWVVa)!'
+- date: "2023-04"
+  content: 'New preprint: [Survey on LLMs](https://arxiv.org/abs/2304.13712)!'

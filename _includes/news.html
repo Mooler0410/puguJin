@@ -1,0 +1,15 @@
+<ul class="news-list" aria-label="Latest news">
+  {% for item in site.data.news limit:3 %}
+  <li><time datetime="{{ item.date }}">{{ item.date | replace: '-', '.' }}</time><div>{{ item.content | markdownify }}</div></li>
+  {% endfor %}
+</ul>
+{% if site.data.news.size > 3 %}
+<details class="news-archive">
+  <summary><span class="news-show-more">Show more news ({{ site.data.news.size | minus: 3 }})</span><span class="news-show-less">Show less news</span></summary>
+  <ul class="news-list" aria-label="Earlier news">
+    {% for item in site.data.news offset:3 %}
+    <li><time datetime="{{ item.date }}">{{ item.date | replace: '-', '.' }}</time><div>{{ item.content | markdownify }}</div></li>
+    {% endfor %}
+  </ul>
+</details>
+{% endif %}
