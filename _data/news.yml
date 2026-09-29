@@ -1,3 +1,5 @@
+- date: "2026-09"
+  content: 'Our follow-up blog on LLAL is out: [How did LLAL change the model? — Similar to Engram, but not the same](https://alltoall.notion.site/how-did-llal-change-the-model).'
 - date: "2026-08"
   content: 'Our blog on preventing expert collapse in ultra-sparse MoE (8/768) training is out: [Mitigate Silent Expert Death in Ultra-Sparse MoE](/puguJin/blog/llal/). A small step towards more sparse models!'
 - date: "2026-06"

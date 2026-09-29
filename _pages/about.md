@@ -10,7 +10,7 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-I am an Applied Scientist at Amazon Rufus. I study how large language models learn, with a focus on ultra-sparse Mixture-of-Experts (MoE) models and long-context modeling.
+I am an Applied Scientist at Amazon Rufus. I study how large language models learn and how they can learn better.
 
 At Amazon, I have worked on pretraining 100B–800B MoE models, studying expert learning dynamics and training stability. My recent work extends to efficient reasoning, multi-turn agent reinforcement learning, and context management.
 
@@ -34,7 +34,7 @@ At Amazon, I have worked on pretraining 100B–800B MoE models, studying expert 
     <li>
       <p class="work-topic">Ultra-sparse MoE training</p>
       <h3>Mitigate Silent Expert Death in Ultra-Sparse MoE</h3>
-      <p class="work-meta"><a href="{{ '/blog/llal/' | relative_url }}" target="_self">Blog</a></p>
+      <p class="work-meta"><a href="{{ '/blog/llal/' | relative_url }}" target="_self">Blog-1</a> · <a href="https://alltoall.notion.site/how-did-llal-change-the-model">Blog-2</a></p>
       <p class="work-description">Understanding expert collapse in lower MoE layers and mitigating it with early auxiliary LM supervision (LLAL).</p>
     </li>
     <li>
