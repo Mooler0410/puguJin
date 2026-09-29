@@ -10,14 +10,9 @@ redirect_from:
 
 <span class='anchor' id='about-me'></span>
 
-Hi there!
+I am an Applied Scientist at Amazon Rufus. I study how large language models learn, with a focus on ultra-sparse Mixture-of-Experts (MoE) models and long-context modeling.
 
-I am an Applied Scientist at Amazon Rufus. I am interested in understanding how foundation models learn.
-
-My research focuses on the training dynamics of large language models, particularly sparse/Mixture-of-Experts (MoE) models and long-context training. At Amazon, I have worked on the pretraining of 100B–800B ultra-sparse MoE models, including expert learning dynamics, training stability, and long-context scaling.
-More recently, I have been extending this work to post-training and reinforcement learning, with a focus on SFT/RL infrastructure, data curation, and how training dynamics change beyond pretraining.
-
-I received my Ph.D. in Computer Science from Texas A&M University, advised by Prof. Xia (Ben) Hu, and my B.E. in Computer Science from Peking University.
+At Amazon, I have worked on pretraining 100B–800B MoE models, studying expert learning dynamics and training stability. My recent work extends to efficient reasoning, multi-turn agent reinforcement learning, and context management.
 
 # Experience
 
