@@ -1,0 +1,811 @@
+<html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"/><title>How does LLAL change the model? Similar to Engram, but not the same</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+/* Override strong tags inside headings to maintain consistent weight */
+h1 strong,
+h2 strong,
+h3 strong {
+	font-weight: 600;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 10px;
+	padding: 1rem;
+	/* Paint a complete callout box on every PDF page fragment. */
+	-webkit-box-decoration-break: clone;
+	box-decoration-break: clone;
+}
+
+/* For default-background callouts, render the border outline. */
+.callout.block-color-default_background {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+/*
+ * Toggles and callouts hold arbitrary content, so they can easily be taller
+ * than a page. They must stay breakable: avoiding breaks inside them makes
+ * Chromium push the whole block onto the next page, which leaves the previous
+ * page mostly empty before every long toggle.
+ */
+details,
+aside {
+	margin: 1.25em 0;
+}
+
+/* Keep a toggle's title on the same page as the start of its content. */
+summary {
+	page-break-after: avoid;
+	break-after: avoid;
+}
+
+/*
+ * Toggle headings render as <h1/h2/h3 style="display:inline-block"> inside
+ * <summary>. Without this reset, the heading's margin-top pushes it below the
+ * ::marker (▼), so the triangle and the title appear on separate lines.
+ */
+summary h1,
+summary h2,
+summary h3,
+summary h4 {
+	margin-top: 0;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+
+	table.collection-content {
+		width: 100%;
+		table-layout: fixed;
+	}
+
+	table.collection-content th,
+	table.collection-content td {
+		overflow-wrap: anywhere;
+	}
+
+	table.collection-content td > .user,
+	table.collection-content td > time {
+		white-space: pre-wrap;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content-wrapper {
+	overflow-x: auto;
+}
+
+@media only print {
+	.collection-content-wrapper {
+		overflow-x: visible;
+	}
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.collection-content td {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+.column-list {
+	display: flex;
+	gap: 46px;
+}
+
+.column {
+	min-width: 0;
+	overflow: hidden;
+}
+
+.column > *:first-child {
+	margin-top: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding-inline: 0.125rem;
+	padding-block: 0.375rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+table {
+	border-collapse: collapse;
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol.numbered-list.numbered-list-digits-2 {
+	padding-inline-start: 2em;
+}
+
+ol.numbered-list.numbered-list-digits-3plus {
+	padding-inline-start: 2.4em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+/*
+ * Render emoji icons using a ::before pseudo-element to keep the glyph
+ * out of the DOM textContent traversal. This avoids double-rendering icons
+ * in callouts and page titles.
+ * NOTE(slim/html-export-pseudo-icons): I can't tagref this because it will
+ * flag as a duplicate tag after codegen.
+ */
+.icon[data-emoji]::before {
+	content: attr(data-emoji);
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.callout img.notion-static-icon {
+	width: 1em;
+	height: 1em;
+}
+
+.callout p {
+	margin: 0;
+}
+
+.callout h1,
+.callout h2,
+.callout h3 {
+	margin: 0 0 0.6rem;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	margin-right: 0.4em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+blockquote.quote-large {
+	font-size: 1.25em;
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.tab {
+	margin: 1.25em 0;
+	padding-inline: 1rem;
+	border: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", "Noto Sans Arabic", "Noto Sans Hebrew", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.highlight-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.highlight-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.highlight-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.highlight-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.highlight-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.highlight-default_background {
+	color: rgba(44, 44, 43, 1);
+}
+.highlight-gray_background {
+	background: rgba(42, 28, 0, 0.07);
+}
+.highlight-brown_background {
+	background: rgba(139, 46, 0, 0.086);
+}
+.highlight-orange_background {
+	background: rgba(224, 101, 1, 0.129);
+}
+.highlight-yellow_background {
+	background: rgba(211, 168, 0, 0.137);
+}
+.highlight-teal_background {
+	background: rgba(0, 100, 45, 0.09);
+}
+.highlight-blue_background {
+	background: rgba(0, 124, 215, 0.094);
+}
+.highlight-purple_background {
+	background: rgba(102, 0, 178, 0.078);
+}
+.highlight-pink_background {
+	background: rgba(197, 0, 93, 0.086);
+}
+.highlight-red_background {
+	background: rgba(223, 22, 0, 0.094);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(125, 122, 117, 1);
+	fill: rgba(125, 122, 117, 1);
+}
+.block-color-brown {
+	color: rgba(159, 118, 90, 1);
+	fill: rgba(159, 118, 90, 1);
+}
+.block-color-orange {
+	color: rgba(210, 123, 45, 1);
+	fill: rgba(210, 123, 45, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 148, 52, 1);
+	fill: rgba(203, 148, 52, 1);
+}
+.block-color-teal {
+	color: rgba(80, 148, 110, 1);
+	fill: rgba(80, 148, 110, 1);
+}
+.block-color-blue {
+	color: rgba(56, 125, 201, 1);
+	fill: rgba(56, 125, 201, 1);
+}
+.block-color-purple {
+	color: rgba(154, 107, 180, 1);
+	fill: rgba(154, 107, 180, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(207, 81, 72, 1);
+	fill: rgba(207, 81, 72, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(240, 239, 237, 1);
+}
+.block-color-brown_background {
+	background: rgba(245, 237, 233, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 235, 222, 1);
+}
+.block-color-yellow_background {
+	background: rgba(249, 243, 220, 1);
+}
+.block-color-teal_background {
+	background: rgba(232, 241, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(229, 242, 252, 1);
+}
+.block-color-purple_background {
+	background: rgba(243, 235, 249, 1);
+}
+.block-color-pink_background {
+	background: rgba(250, 233, 241, 1);
+}
+.block-color-red_background {
+	background: rgba(252, 233, 231, 1);
+}
+.select-value-color-default { background-color: rgba(42, 28, 0, 0.07); }
+.select-value-color-gray { background-color: rgba(28, 19, 1, 0.11); }
+.select-value-color-brown { background-color: rgba(127, 51, 0, 0.156); }
+.select-value-color-orange { background-color: rgba(196, 88, 0, 0.203); }
+.select-value-color-yellow { background-color: rgba(209, 156, 0, 0.282); }
+.select-value-color-green { background-color: rgba(0, 96, 38, 0.156); }
+.select-value-color-blue { background-color: rgba(0, 118, 217, 0.203); }
+.select-value-color-purple { background-color: rgba(92, 0, 163, 0.141); }
+.select-value-color-pink { background-color: rgba(183, 0, 78, 0.152); }
+.select-value-color-red { background-color: rgba(206, 24, 0, 0.164); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><link href="../llal/assets/katex.min.css" rel="stylesheet"/><style>
+.homepage-backlink { margin: 0 0 1.25rem; font-size: 0.95rem; font-weight: 600; }
+.homepage-backlink a { text-decoration: none; }
+.homepage-backlink a:hover { text-decoration: underline; }
+.notion-source-note { margin: 0.25rem 0 1.5rem; padding: 0.75rem 1rem; border: 1.5px solid currentColor; border-radius: 6px; font-size: 0.95rem; font-weight: 600; opacity: 1; }
+.notion-source-note a { text-decoration: underline; font-weight: 700; }
+.notion-source-note a:hover { text-decoration-thickness: 2px; }
+</style></head><body><div class="homepage-backlink"><a href="../../">← Hongye Jin</a></div><article class="page sans" id="5ff7f391-2950-82bb-a0ea-81bf02abe806"><header><h1 class="page-title" dir="auto">How does LLAL change the model? Similar to Engram, but not the same</h1><p class="notion-source-note">This is a static copy of the <a href="https://alltoall.notion.site/how-did-llal-change-the-model">original Notion page</a>.</p><p class="page-description" dir="auto"></p></header><div class="page-body"><p class="" dir="auto" id="3ea7f391-2950-81b0-bd1f-ff5a5bedd014"><strong>A brief recap.</strong> In our <a href="../llal/">previous post</a>, we introduced LLAL—Language Modeling Loss as an Auxiliary Loss—to address weak learning signals and expert undertraining in early MoE layers. <strong>Our hypothesis was that giving early layers a stable learning signal could help them establish useful functions.</strong> LLAL applies an auxiliary language-modeling objective to an early layer for a short initial training window and then removes it. In the settings reported there, the additional training computation was less than 0.3%. We observed:</p><ul class="bulleted-list" dir="auto" id="3ea7f391-2950-8001-acc5-f2c3909a6dd1"><li style="list-style-type:disc">Lower validation loss,</li></ul><ul class="bulleted-list" dir="auto" id="3ea7f391-2950-8080-8089-fb9cd3595a47"><li style="list-style-type:disc">Ligher downstream scores</li></ul><ul class="bulleted-list" dir="auto" id="3ea7f391-2950-8056-ab2f-c2e29bec0f83"><li style="list-style-type:disc">Better early-layer load balance</li></ul><ul class="bulleted-list" dir="auto" id="3ea7f391-2950-80f8-bd1c-e1c817bf19f9"><li style="list-style-type:disc">Persistent utilization of early experts after the auxiliary objective was removed.</li></ul><figure class="image" data-notion-image="aux_loss.png" dir="ltr" id="3ea7f391-2950-812c-9274-e869b7743c3e"><a href="aux_loss.png"><img src="aux_loss.png" style="width:703.9765625px"/></a><figcaption>LLAL applies an auxiliary prediction objective early in training.</figcaption></figure><p class="" dir="auto" id="3ea7f391-2950-8154-ae1d-f5a6e6690a62"><strong>What lasting function does LLAL help these experts establish—and how might that explain its broader training benefits?</strong> This follow-up investigates the hypothesis behind LLAL through rare-knowledge prediction and layer-wise expert masking. We then use Engram as a complementary architectural intervention to examine whether making a useful knowledge-related function available early supports the development of subsequent experts. The goal throughout is to better understand how LLAL may work.</p><p class="" dir="auto" id="3ea7f391-2950-81f0-95a9-f688db88d2a9"><strong>A possible explanation of LLAL:</strong> its early auxiliary signal helps previously underused experts establish a persistent role in supporting rare knowledge. Subsequent layers may then build on that function and learn useful predictive computations without all specializing in acquiring the same knowledge. The Engram placement experiments add support to this interpretation: providing memory before L1 is accompanied by healthier expert development and broadly positive masking effects, whereas providing it before L14 aggravates early-layer undertraining.</p><p class="" dir="auto" id="3ea7f391-2950-816d-a9da-df32052e3ed1"><strong>Conventions.</strong> Layer numbers are zero-based. In the main comparison models, L0 is dense and L1 is the first MoE layer. We probe <em>rare knowledge</em> through low-frequency name continuations and factual answers, examining both knowledge-related dependence and the predictive contributions of the surrounding layers.</p><h2 class="" dir="auto" id="3ea7f391-2950-812d-ab22-d352e4d86736">1. LLAL establishes an early rare-knowledge function</h2><p class="" dir="auto" id="3ea7f391-2950-818c-bfb2-cf11e3c05833">Our full-MoE experiments motivated this analysis. When the first layer was also an MoE layer, it did not exhibit the same weak-signal pattern and its weight norms appeared healthy, while other early MoE layers continued to receive weak signals as training progressed. This raised a functional question: what useful role can an early MoE layer acquire, and can establishing that role change the development of the layers that follow?</p><p class="" dir="auto" id="3ea7f391-2950-819b-b51f-d618dcfe0940">Earlier reports of bigram-prediction subnetworks and token- or n-gram-sensitive neurons in early feed-forward layers (<a href="https://arxiv.org/abs/2504.15471">Bigram Subnetworks</a> and <a href="https://arxiv.org/abs/2309.04827">Neurons in Large Language Models</a>) motivated an examination of memory-related predictions. Our aim is not only to locate a rare-knowledge dependence peak, but to understand how an early useful function relates to the broader layer-wise pattern.</p><h3 class="" dir="auto" id="3ea7f391-2950-81f9-808c-c0f2a421a902">Experimental setup</h3><p class="" dir="auto" id="3ea7f391-2950-8152-8b88-c2a11a841386">The main comparisons shown below are AdamW 2T and Muon models, each with and without LLAL. We also include two Engram models, with the memory module inserted at different depths.</p><table class="simple-table" dir="ltr" id="3ea7f391-2950-8160-8b08-e7cce9d21cca"><thead class="simple-table-header"><tr dir="ltr" id="3ea7f391-2950-8102-a142-f3ceb7ef3e67"><th class="simple-table-header-color simple-table-header" id="\z?]">Task</th><th class="simple-table-header-color simple-table-header" id="[pUV">Dataset</th><th class="simple-table-header-color simple-table-header" id="j=`h">Prediction target</th></tr></thead><tbody><tr dir="ltr" id="3ea7f391-2950-8184-82c1-e5c064422852"><td class="" id="\z?]">Entity-name completion</td><td class="" id="[pUV">PopQA names: 6,417</td><td class="" id="j=`h">Remaining words of an entity name, given its first word</td></tr><tr dir="ltr" id="3ea7f391-2950-818e-8ecf-fb168bb88a23"><td class="" id="\z?]">Factual recall</td><td class="" id="[pUV">PopQA: 11,822</td><td class="" id="j=`h">Answer span in a question-answering or cloze prompt</td></tr></tbody></table><p class="" dir="auto" id="3ea7f391-2950-8119-98b4-db934556a6bf">We use subject-name occurrence counts in FineWeb as a <strong>proxy for rarity</strong>, not as a measurement of exposure in the models’ actual training data. Rare subjects have at most 100 occurrences; common subjects have more than 1,000. Intermediate counts remain visible in the frequency-binned analysis.</p><p class="" dir="auto" id="3ea7f391-2950-810b-8397-e6591af79c2f">For each tested layer, we zeroed the <strong>routed-expert output</strong>, retaining the shared expert, attention, and residual connection. This is a branch intervention, not deletion of the entire transformer layer. We scored the canonical target using teacher forcing and measured</p><figure class="equation" data-notion-equation="\Delta \mathrm{NLL} = \mathrm{NLL}_{\mathrm{ablated}} - \mathrm{NLL}_{\mathrm{original}}." dir="auto" id="3ea7f391-2950-81ce-b495-c2648e1dc942"><div class="equation-container"><span class="katex-display"><span class="katex"><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">Δ</span><span class="mord"><span class="mord mathrm">NLL</span></span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">NLL</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight">ablated</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">−</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.9694em;vertical-align:-0.2861em;"></span><span class="mord"><span class="mord"><span class="mord mathrm">NLL</span></span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.3361em;"><span style="top:-2.55em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight"><span class="mord mathrm mtight">original</span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.2861em;"><span></span></span></span></span></span></span><span class="mord">.</span></span></span></span></span></div></figure><p class="" dir="auto" id="3ea7f391-2950-816a-837e-ed0c348edea5"><strong>Positive ΔNLL means that the branch was making a useful contribution to the target prediction:</strong> removing it made the target less likely. Values are in nats per target span. Negative values mean that removing the branch improved the target score under that condition.</p><p class="" dir="auto" id="3ea7f391-2950-81fa-a899-cd0ddcbd094e">We read these measurements in two ways. <strong>Absolute ΔNLL</strong> indicates a branch’s predictive contribution on the evaluated task. The <strong>rare/common contrast</strong> indicates whether that contribution is especially important for rare knowledge. A layer can contribute positively without showing strong rare-knowledge specialization.</p><p class="" dir="auto" id="3ea7f391-2950-8154-8fbd-c3d936fa63cb">The main name-completion analysis uses targets that the unmodified model predicts correctly at every target position under teacher forcing. We call these <em>baseline-correct targets</em>. The selected targets remain fixed across interventions on a given model, but can differ between models. This measures disruption of existing predictions, not free-generation accuracy. We also examined the subset correctly predicted by all compared models; the tables below present the model-specific analysis.</p><h3 class="" dir="auto" id="3ea7f391-2950-81e3-81a2-fc08aba17da5">Previously underused early experts acquire a concrete function</h3><p class="" dir="auto" id="3ea7f391-2950-812b-8413-d3d7fb718ea7">The first three MoE layers illustrate the contrast. Each entry is <strong>rare-group ΔNLL / common-group ΔNLL</strong>.</p><table class="simple-table" dir="ltr" id="3ea7f391-2950-813c-8fcd-d4b1719f64a7"><thead class="simple-table-header"><tr dir="ltr" id="3ea7f391-2950-81f9-ad12-c3810044cf55"><th class="simple-table-header-color simple-table-header" id="BkHg" style="width:140px">Task</th><th class="simple-table-header-color simple-table-header" id="QUCH" style="width:88px"> Mask</th><th class="simple-table-header-color simple-table-header" id="@M_j">AdamW 2T baseline</th><th class="simple-table-header-color simple-table-header" id="G]X~" style="width:142px">AdamW 2T LLAL</th><th class="simple-table-header-color simple-table-header" id="B:iB">Muon Baseline</th><th class="simple-table-header-color simple-table-header" id="ghCr">Muon LLAL</th></tr></thead><tbody><tr dir="ltr" id="3ea7f391-2950-8180-9658-eb4269992d61"><td class="" id="BkHg" style="width:140px">Name completion</td><td class="" id="QUCH" style="width:88px">L1 routed </td><td class="" id="@M_j">-0.009 / -0.006</td><td class="" id="G]X~" style="width:142px">0.944 / 0.025</td><td class="" id="B:iB">0.012 / 0.000</td><td class="" id="ghCr">1.169 / 0.069</td></tr><tr dir="ltr" id="3ea7f391-2950-81ae-bf33-c826e9a11555"><td class="" id="BkHg" style="width:140px">Name completion</td><td class="" id="QUCH" style="width:88px">L2 routed </td><td class="" id="@M_j">-0.021 / -0.018</td><td class="" id="G]X~" style="width:142px">2.158 / 0.108</td><td class="" id="B:iB">-0.029 / -0.009</td><td class="" id="ghCr">0.427 / 0.049</td></tr><tr dir="ltr" id="3ea7f391-2950-810d-a9c5-f226ffcfa773"><td class="" id="BkHg" style="width:140px">Name completion</td><td class="" id="QUCH" style="width:88px">L3 routed </td><td class="" id="@M_j">0.077 / 0.016</td><td class="" id="G]X~" style="width:142px">1.184 / -0.015</td><td class="" id="B:iB">0.001 / -0.007</td><td class="" id="ghCr">0.210 / 0.038</td></tr><tr dir="ltr" id="3ea7f391-2950-80a5-abf0-cd765b4189e7"><td class="" id="BkHg" style="width:140px">Name completion</td><td class="" id="QUCH" style="width:88px">L4 routed</td><td class="" id="@M_j">0.165 / 0.068</td><td class="" id="G]X~" style="width:142px">0.644 / 0.030</td><td class="" id="B:iB">-0.018 / -0.020</td><td class="" id="ghCr">0.284 / 0.049</td></tr><tr dir="ltr" id="3ea7f391-2950-8025-badd-e2df3159d980"><td class="block-color-blue_background" id="BkHg" style="width:140px"></td><td class="block-color-blue_background" id="QUCH" style="width:88px"></td><td class="block-color-blue_background" id="@M_j"></td><td class="block-color-blue_background" id="G]X~" style="width:142px"></td><td class="block-color-blue_background" id="B:iB"></td><td class="block-color-blue_background" id="ghCr"></td></tr><tr dir="ltr" id="3ea7f391-2950-815b-8a4e-daf776662caa"><td class="" id="BkHg" style="width:140px">Factual QA</td><td class="" id="QUCH" style="width:88px">L1 routed </td><td class="" id="@M_j">-0.004 / 0.001</td><td class="" id="G]X~" style="width:142px">0.713 / 0.233</td><td class="" id="B:iB">-0.023 / 0.000</td><td class="" id="ghCr">0.882 / 0.269</td></tr><tr dir="ltr" id="3ea7f391-2950-8135-a113-c50eda25e259"><td class="" id="BkHg" style="width:140px">Factual QA</td><td class="" id="QUCH" style="width:88px">L2 routed </td><td class="" id="@M_j">0.031 / 0.056</td><td class="" id="G]X~" style="width:142px">3.154 / 0.865</td><td class="" id="B:iB">-0.023 / 0.009</td><td class="" id="ghCr">0.343 / 0.137</td></tr><tr dir="ltr" id="3ea7f391-2950-816f-a0b4-d10593fbe5cb"><td class="" id="BkHg" style="width:140px">Factual QA</td><td class="" id="QUCH" style="width:88px">L3 routed </td><td class="" id="@M_j">0.172 / 0.151</td><td class="" id="G]X~" style="width:142px">1.355 / 0.228</td><td class="" id="B:iB">0.072 / 0.051</td><td class="" id="ghCr">0.298 / 0.188</td></tr><tr dir="ltr" id="3ea7f391-2950-807f-bb98-df826a7a6c50"><td class="" id="BkHg" style="width:140px">Factual QA</td><td class="" id="QUCH" style="width:88px">L4 routed </td><td class="" id="@M_j">0.295 / 0.102</td><td class="" id="G]X~" style="width:142px">0.849 / 0.222</td><td class="" id="B:iB">-0.006 / 0.021</td><td class="" id="ghCr">0.228 / 0.145</td></tr></tbody></table><p class="" dir="auto" id="3ea7f391-2950-81ae-887d-f0ca391c4d5b">In the AdamW 2T baseline, L1 and L2 have little effect on these predictions. Dependence begins to emerge further into the prefix, <strong>already around L4</strong>, although it is not that significant and the magnitude varies across subsequent layers. The issue is therefore not that the model never learns rare knowledge; rather, the first MoE layers remain largely uninvolved while a useful function begins to develop later.</p><p class="" dir="auto" id="3ea7f391-2950-81f4-9b4a-d0d520800467">With LLAL, the first MoE layers themselves become important. Removing L1 increases rare-name NLL by <strong>0.944</strong>, compared with <strong>0.025</strong> for common names. Removing L2 has an even larger effect: <strong>2.158 / 0.108</strong> on name completion and <strong>3.154 / 0.865</strong> on factual QA. The Muon comparison shows the same early-layer recovery: its L1 rare-name effect changes from <strong>0.012</strong> without LLAL to <strong>1.169</strong> with LLAL.</p><p class="" dir="auto" id="3ea7f391-2950-8125-8099-c4dad128188d">These results connect the rescue in our previous post to an identifiable function: <strong>rare-knowledge prediction comes to depend on early routed experts that were previously weakly used.</strong></p><details class="toggle" dir="auto" id="3ea7f391-2950-8181-8289-f7a2dc744211" open=""><summary>Complete results: PopQA entity-name completion</summary><div class="indented"><p class="" dir="auto" id="3ea7f391-2950-81ed-8bed-f7a3b4ece64a">Each cell reports <strong>rare-group ΔNLL / common-group ΔNLL</strong>. The Engram columns are discussed below. A dash denotes an unreported measurement.</p><table class="simple-table" dir="ltr" id="3ea7f391-2950-81aa-be42-d71a6bd565f0"><thead class="simple-table-header"><tr dir="ltr" id="3ea7f391-2950-81d4-b6f9-ffa31c4a393e"><th class="simple-table-header-color simple-table-header" id=":RJ=">Layer</th><th class="simple-table-header-color simple-table-header" id="Q[&lt;a">AdamW 2T baseline</th><th class="simple-table-header-color simple-table-header" id="y`Fp">AdamW 2T LLAL</th><th class="simple-table-header-color simple-table-header" id="X&gt;B]">Muon Baseline</th><th class="simple-table-header-color simple-table-header" id="y[~V">Muon LLAL</th><th class="simple-table-header-color simple-table-header" id="O|s&lt;">Engram-L14</th><th class="simple-table-header-color simple-table-header" id="U[Fu">Engram-L1</th></tr></thead><tbody><tr dir="ltr" id="3ea7f391-2950-81ce-b18d-ece82d309111"><td class="" id=":RJ=">L1</td><td class="" id="Q[&lt;a">-0.009 / -0.006</td><td class="" id="y`Fp">0.944 / 0.025</td><td class="" id="X&gt;B]">0.012 / 0.000</td><td class="" id="y[~V">1.169 / 0.069</td><td class="" id="O|s&lt;">0.011 / 0.005</td><td class="" id="U[Fu">0.062 / 0.038</td></tr><tr dir="ltr" id="3ea7f391-2950-81ee-912e-f12baed0d2de"><td class="" id=":RJ=">L2</td><td class="" id="Q[&lt;a">-0.021 / -0.018</td><td class="" id="y`Fp">2.158 / 0.108</td><td class="" id="X&gt;B]">-0.029 / -0.009</td><td class="" id="y[~V">0.427 / 0.049</td><td class="" id="O|s&lt;">0.029 / 0.004</td><td class="" id="U[Fu">0.177 / 0.019</td></tr><tr dir="ltr" id="3ea7f391-2950-8151-945d-f03ab2d26f20"><td class="" id=":RJ=">L3</td><td class="" id="Q[&lt;a">0.077 / 0.016</td><td class="" id="y`Fp">1.184 / -0.015</td><td class="" id="X&gt;B]">0.001 / -0.007</td><td class="" id="y[~V">0.210 / 0.038</td><td class="" id="O|s&lt;">0.025 / 0.010</td><td class="" id="U[Fu">-0.018 / -0.003</td></tr><tr dir="ltr" id="3ea7f391-2950-8192-8111-db4ec9bca18e"><td class="" id=":RJ=">L4</td><td class="" id="Q[&lt;a">0.165 / 0.068</td><td class="" id="y`Fp">0.644 / 0.030</td><td class="" id="X&gt;B]">-0.018 / -0.020</td><td class="" id="y[~V">0.284 / 0.049</td><td class="" id="O|s&lt;">0.001 / 0.001</td><td class="" id="U[Fu">0.127 / 0.068</td></tr><tr dir="ltr" id="3ea7f391-2950-814e-adb5-e371a5a3d9c7"><td class="" id=":RJ=">L5</td><td class="" id="Q[&lt;a">0.270 / 0.003</td><td class="" id="y`Fp">0.790 / 0.027</td><td class="" id="X&gt;B]">0.001 / 0.014</td><td class="" id="y[~V">0.280 / 0.043</td><td class="" id="O|s&lt;">0.012 / 0.010</td><td class="" id="U[Fu">0.108 / 0.039</td></tr><tr dir="ltr" id="3ea7f391-2950-812d-99d6-ed03dbaac762"><td class="" id=":RJ=">L6</td><td class="" id="Q[&lt;a">0.129 / -0.013</td><td class="" id="y`Fp">0.607 / -0.003</td><td class="" id="X&gt;B]">-0.037 / -0.016</td><td class="" id="y[~V">0.030 / -0.021</td><td class="" id="O|s&lt;">0.048 / 0.016</td><td class="" id="U[Fu">0.046 / 0.013</td></tr><tr dir="ltr" id="3ea7f391-2950-8172-b4e4-e93ef5a2a285"><td class="" id=":RJ=">L7</td><td class="" id="Q[&lt;a">0.117 / 0.002</td><td class="" id="y`Fp">1.476 / 0.167</td><td class="" id="X&gt;B]">0.028 / -0.011</td><td class="" id="y[~V">0.068 / -0.019</td><td class="" id="O|s&lt;">0.048 / 0.032</td><td class="" id="U[Fu">0.029 / 0.017</td></tr><tr dir="ltr" id="3ea7f391-2950-81a8-ab9b-f6100d5ec031"><td class="" id=":RJ=">L8</td><td class="" id="Q[&lt;a">0.065 / 0.002</td><td class="" id="y`Fp">0.633 / 0.038</td><td class="" id="X&gt;B]">3.098 / 0.203</td><td class="" id="y[~V">0.119 / -0.021</td><td class="" id="O|s&lt;">-0.034 / -0.062</td><td class="" id="U[Fu">-0.016 / 0.004</td></tr><tr dir="ltr" id="3ea7f391-2950-81ad-a191-ca54dd2e3e25"><td class="" id=":RJ=">L9</td><td class="" id="Q[&lt;a">5.077 / 0.208</td><td class="" id="y`Fp">0.289 / 0.005</td><td class="" id="X&gt;B]">-0.007 / -0.008</td><td class="" id="y[~V">0.016 / -0.010</td><td class="" id="O|s&lt;">0.346 / -0.021</td><td class="" id="U[Fu">0.041 / 0.019</td></tr><tr dir="ltr" id="3ea7f391-2950-811e-abac-c60202021b8f"><td class="" id=":RJ=">L10</td><td class="" id="Q[&lt;a">0.449 / 0.062</td><td class="" id="y`Fp">0.341 / 0.017</td><td class="" id="X&gt;B]">0.054 / 0.002</td><td class="" id="y[~V">0.041 / 0.005</td><td class="" id="O|s&lt;">0.022 / -0.023</td><td class="" id="U[Fu">-0.011 / 0.013</td></tr><tr dir="ltr" id="3ea7f391-2950-812f-bb39-d72ec98cc50e"><td class="" id=":RJ=">L11</td><td class="" id="Q[&lt;a">0.481 / 0.013</td><td class="" id="y`Fp">0.201 / 0.009</td><td class="" id="X&gt;B]">0.146 / 0.040</td><td class="" id="y[~V">0.141 / -0.015</td><td class="" id="O|s&lt;">-0.017 / -0.057</td><td class="" id="U[Fu">0.005 / 0.018</td></tr><tr dir="ltr" id="3ea7f391-2950-8175-baa4-f7dbae8d73db"><td class="" id=":RJ=">L12</td><td class="" id="Q[&lt;a">—</td><td class="" id="y`Fp">—</td><td class="" id="X&gt;B]">—</td><td class="" id="y[~V">—</td><td class="" id="O|s&lt;">0.129 / 0.031</td><td class="" id="U[Fu">0.044 / 0.023</td></tr><tr dir="ltr" id="3ea7f391-2950-812a-95e6-f2179ac42c9c"><td class="" id=":RJ=">L13</td><td class="" id="Q[&lt;a">—</td><td class="" id="y`Fp">—</td><td class="" id="X&gt;B]">—</td><td class="" id="y[~V">—</td><td class="" id="O|s&lt;">0.250 / 0.069</td><td class="" id="U[Fu">0.004 / 0.026</td></tr><tr dir="ltr" id="3ea7f391-2950-8108-b1c9-f8af768b10a6"><td class="" id=":RJ="></td><td class="" id="Q[&lt;a"></td><td class="" id="y`Fp"></td><td class="" id="X&gt;B]"></td><td class="" id="y[~V"></td><td class="" id="O|s&lt;"></td><td class="" id="U[Fu"></td></tr><tr dir="ltr" id="3ea7f391-2950-81d2-b9b6-f0c3cfd65bfb"><td class="" id=":RJ=">L14</td><td class="" id="Q[&lt;a">—</td><td class="" id="y`Fp">—</td><td class="" id="X&gt;B]">—</td><td class="" id="y[~V">—</td><td class="" id="O|s&lt;">0.025 / 0.009</td><td class="" id="U[Fu">0.031 / 0.002</td></tr><tr dir="ltr" id="3ea7f391-2950-812e-a315-dd8e03cd1d82"><td class="" id=":RJ=">L15</td><td class="" id="Q[&lt;a">—</td><td class="" id="y`Fp">—</td><td class="" id="X&gt;B]">—</td><td class="" id="y[~V">—</td><td class="" id="O|s&lt;">0.095 / 0.065</td><td class="" id="U[Fu">0.007 / 0.020</td></tr><tr dir="ltr" id="3ea7f391-2950-81ac-8218-ebba42b946ed"><td class="" id=":RJ=">L16</td><td class="" id="Q[&lt;a">—</td><td class="" id="y`Fp">—</td><td class="" id="X&gt;B]">—</td><td class="" id="y[~V">—</td><td class="" id="O|s&lt;">0.069 / 0.008</td><td class="" id="U[Fu">0.028 / 0.012</td></tr><tr dir="ltr" id="3ea7f391-2950-8130-8571-cc757de26fbd"><td class="" id=":RJ=">L19</td><td class="" id="Q[&lt;a">—</td><td class="" id="y`Fp">—</td><td class="" id="X&gt;B]">—</td><td class="" id="y[~V">—</td><td class="" id="O|s&lt;">0.018 / -0.014</td><td class="" id="U[Fu">0.056 / 0.031</td></tr></tbody></table></div></details><details class="toggle" dir="auto" id="3ea7f391-2950-8187-b15d-d8fa7786d8b9" open=""><summary>Complete results: PopQA factual question answering</summary><div class="indented"><p class="" dir="auto" id="3ea7f391-2950-8147-8e4f-df20e2745ed8">Each cell reports <strong>rare-group ΔNLL / common-group ΔNLL</strong>. A dash denotes an unreported measurement.</p><table class="simple-table" dir="ltr" id="3ea7f391-2950-81d8-9bf0-dd735e5e58ab"><thead class="simple-table-header"><tr dir="ltr" id="3ea7f391-2950-8176-8907-ca8d92ed0cea"><th class="simple-table-header-color simple-table-header" id="@Emi">Layer</th><th class="simple-table-header-color simple-table-header" id="N&gt;hE">AdamW 2T baseline</th><th class="simple-table-header-color simple-table-header" id="[AbO">AdamW 2T LLAL</th><th class="simple-table-header-color simple-table-header" id="LU:i">Muon Baseline</th><th class="simple-table-header-color simple-table-header" id="uw`O">Muon LLAL</th><th class="simple-table-header-color simple-table-header" id="P&lt;&gt;s">Engram-L14</th><th class="simple-table-header-color simple-table-header" id="Y;ve">Engram-L1</th></tr></thead><tbody><tr dir="ltr" id="3ea7f391-2950-8146-a315-de452c2d78c7"><td class="" id="@Emi">L1</td><td class="" id="N&gt;hE">-0.004 / 0.001</td><td class="" id="[AbO">0.713 / 0.233</td><td class="" id="LU:i">-0.023 / 0.000</td><td class="" id="uw`O">0.882 / 0.269</td><td class="" id="P&lt;&gt;s">0.009 / 0.009</td><td class="" id="Y;ve">0.035 / 0.008</td></tr><tr dir="ltr" id="3ea7f391-2950-815c-8330-dba512855414"><td class="" id="@Emi">L2</td><td class="" id="N&gt;hE">0.031 / 0.056</td><td class="" id="[AbO">3.154 / 0.865</td><td class="" id="LU:i">-0.023 / 0.009</td><td class="" id="uw`O">0.343 / 0.137</td><td class="" id="P&lt;&gt;s">0.000 / 0.013</td><td class="" id="Y;ve">0.203 / 0.109</td></tr><tr dir="ltr" id="3ea7f391-2950-811f-9cc0-c99d8d2bdd56"><td class="" id="@Emi">L3</td><td class="" id="N&gt;hE">0.172 / 0.151</td><td class="" id="[AbO">1.355 / 0.228</td><td class="" id="LU:i">0.072 / 0.051</td><td class="" id="uw`O">0.298 / 0.188</td><td class="" id="P&lt;&gt;s">-0.004 / 0.017</td><td class="" id="Y;ve">0.042 / 0.007</td></tr><tr dir="ltr" id="3ea7f391-2950-8115-af05-e141483822c2"><td class="" id="@Emi">L4</td><td class="" id="N&gt;hE">0.295 / 0.102</td><td class="" id="[AbO">0.849 / 0.222</td><td class="" id="LU:i">-0.006 / 0.021</td><td class="" id="uw`O">0.228 / 0.145</td><td class="" id="P&lt;&gt;s">0.005 / 0.020</td><td class="" id="Y;ve">0.095 / 0.120</td></tr><tr dir="ltr" id="3ea7f391-2950-8132-9ece-d49dc1d3ee3d"><td class="" id="@Emi">L5</td><td class="" id="N&gt;hE">0.522 / 0.256</td><td class="" id="[AbO">0.554 / 0.215</td><td class="" id="LU:i">-0.003 / 0.004</td><td class="" id="uw`O">0.300 / 0.075</td><td class="" id="P&lt;&gt;s">0.025 / 0.017</td><td class="" id="Y;ve">0.064 / 0.093</td></tr><tr dir="ltr" id="3ea7f391-2950-8154-98a9-d3482b80a114"><td class="" id="@Emi">L6</td><td class="" id="N&gt;hE">0.345 / 0.180</td><td class="" id="[AbO">0.474 / 0.270</td><td class="" id="LU:i">-0.006 / 0.022</td><td class="" id="uw`O">0.087 / 0.012</td><td class="" id="P&lt;&gt;s">0.039 / 0.047</td><td class="" id="Y;ve">0.025 / 0.037</td></tr><tr dir="ltr" id="3ea7f391-2950-81db-abd8-e048f7e1678c"><td class="" id="@Emi">L7</td><td class="" id="N&gt;hE">0.113 / 0.043</td><td class="" id="[AbO">0.991 / 0.791</td><td class="" id="LU:i">0.022 / 0.039</td><td class="" id="uw`O">0.093 / 0.076</td><td class="" id="P&lt;&gt;s">0.009 / 0.019</td><td class="" id="Y;ve">0.087 / 0.152</td></tr><tr dir="ltr" id="3ea7f391-2950-8139-b72d-d6c3b3ece26b"><td class="" id="@Emi">L8</td><td class="" id="N&gt;hE">0.138 / 0.142</td><td class="" id="[AbO">0.379 / 0.339</td><td class="" id="LU:i">2.080 / 0.808</td><td class="" id="uw`O">0.167 / 0.184</td><td class="" id="P&lt;&gt;s">0.044 / 0.000</td><td class="" id="Y;ve">0.048 / 0.020</td></tr><tr dir="ltr" id="3ea7f391-2950-8158-b47b-c8c20053dcf1"><td class="" id="@Emi">L9</td><td class="" id="N&gt;hE">3.133 / 0.971</td><td class="" id="[AbO">0.219 / 0.154</td><td class="" id="LU:i">0.084 / 0.050</td><td class="" id="uw`O">0.347 / 0.242</td><td class="" id="P&lt;&gt;s">0.344 / 0.336</td><td class="" id="Y;ve">0.074 / 0.079</td></tr><tr dir="ltr" id="3ea7f391-2950-8117-882d-d53eb84c446d"><td class="" id="@Emi">L10</td><td class="" id="N&gt;hE">0.464 / 0.292</td><td class="" id="[AbO">0.255 / 0.328</td><td class="" id="LU:i">0.102 / 0.110</td><td class="" id="uw`O">0.194 / 0.217</td><td class="" id="P&lt;&gt;s">0.052 / 0.010</td><td class="" id="Y;ve">0.028 / 0.076</td></tr><tr dir="ltr" id="3ea7f391-2950-8124-be3f-c8dc80da7e60"><td class="" id="@Emi">L11</td><td class="" id="N&gt;hE">0.785 / 0.120</td><td class="" id="[AbO">0.165 / 0.264</td><td class="" id="LU:i">0.250 / 0.318</td><td class="" id="uw`O">0.156 / 0.288</td><td class="" id="P&lt;&gt;s">0.024 / -0.012</td><td class="" id="Y;ve">0.035 / 0.061</td></tr><tr dir="ltr" id="3ea7f391-2950-815b-a532-d5cb2bc2173d"><td class="" id="@Emi">L12</td><td class="" id="N&gt;hE">—</td><td class="" id="[AbO">—</td><td class="" id="LU:i">—</td><td class="" id="uw`O">—</td><td class="" id="P&lt;&gt;s">0.208 / 0.136</td><td class="" id="Y;ve">0.067 / 0.255</td></tr><tr dir="ltr" id="3ea7f391-2950-8184-8ee0-ea342a0d68fa"><td class="" id="@Emi">L13</td><td class="" id="N&gt;hE">—</td><td class="" id="[AbO">—</td><td class="" id="LU:i">—</td><td class="" id="uw`O">—</td><td class="" id="P&lt;&gt;s">0.237 / 0.286</td><td class="" id="Y;ve">0.069 / 0.112</td></tr><tr dir="ltr" id="3ea7f391-2950-8175-9f39-e2d0ea661d65"><td class="" id="@Emi"></td><td class="" id="N&gt;hE"></td><td class="" id="[AbO"></td><td class="" id="LU:i"></td><td class="" id="uw`O"></td><td class="" id="P&lt;&gt;s"></td><td class="" id="Y;ve"></td></tr><tr dir="ltr" id="3ea7f391-2950-812f-bc29-ec082dc15776"><td class="" id="@Emi">L14</td><td class="" id="N&gt;hE">—</td><td class="" id="[AbO">—</td><td class="" id="LU:i">—</td><td class="" id="uw`O">—</td><td class="" id="P&lt;&gt;s">0.109 / 0.055</td><td class="" id="Y;ve">0.047 / 0.067</td></tr><tr dir="ltr" id="3ea7f391-2950-816c-81be-f5e0abcc191c"><td class="" id="@Emi">L15</td><td class="" id="N&gt;hE">—</td><td class="" id="[AbO">—</td><td class="" id="LU:i">—</td><td class="" id="uw`O">—</td><td class="" id="P&lt;&gt;s">0.107 / 0.145</td><td class="" id="Y;ve">0.061 / 0.035</td></tr><tr dir="ltr" id="3ea7f391-2950-81cb-8054-e023a44b6ec3"><td class="" id="@Emi">L16</td><td class="" id="N&gt;hE">—</td><td class="" id="[AbO">—</td><td class="" id="LU:i">—</td><td class="" id="uw`O">—</td><td class="" id="P&lt;&gt;s">0.036 / 0.057</td><td class="" id="Y;ve">0.014 / 0.036</td></tr><tr dir="ltr" id="3ea7f391-2950-81f0-9685-feb0bd857011"><td class="" id="@Emi">L19</td><td class="" id="N&gt;hE">—</td><td class="" id="[AbO">—</td><td class="" id="LU:i">—</td><td class="" id="uw`O">—</td><td class="" id="P&lt;&gt;s">0.105 / 0.061</td><td class="" id="Y;ve">0.028 / 0.063</td></tr></tbody></table></div></details><h3 class="" dir="auto" id="3ea7f391-2950-81d1-a027-edef16320470">The layers after them remain useful without all specializing in rare knowledge</h3><p class="" dir="auto" id="3ea7f391-2950-8140-ac01-f5d03be65a8d">The broader pattern matters as much as the early rare/common contrast. In both LLAL models, <strong>every measured routed branch has positive ΔNLL for both the rare and common factual-QA groups</strong>. The model is not simply relying on an early memory-like component while leaving the rest of the tested prefix unused.</p><p class="" dir="auto" id="3ea7f391-2950-8134-9663-e21b3a8ea4ac">Later layers can contribute to prediction without showing the same degree of rare selectivity. For example, in AdamW 2T LLAL, the factual-QA effects at L8, L10, and L11 are <strong>0.379 / 0.339</strong>, <strong>0.255 / 0.328</strong>, and <strong>0.165 / 0.264</strong>. These are positive contributions to both groups, rather than a repetition of the particularly strong rare/common contrast in the first MoE layers. The transition is not a hard boundary: some intervening layers still show substantial rare-knowledge dependence.</p><p class="" dir="auto" id="3ea7f391-2950-81c1-ae06-f93a31cfc8a3"><strong>This gives a functional interpretation of the stable-signal hypothesis in our previous LLAL post.</strong> The auxiliary objective may help early experts establish a lasting role in acquiring or making rare knowledge available. Once this role is established, subsequent layers can build on it and learn other useful predictive computations. Without LLAL, the first MoE layers may fail to establish this role, even though rare-knowledge dependence eventually appears farther into the prefix. This offers a possible explanation for why a brief early intervention can affect learning beyond the directly supervised layers and remain useful after the auxiliary loss is removed.</p><p class="" dir="auto" id="3ea7f391-2950-8137-a037-f68178afcaef">The masking results identify dependence, while the causal link from an early stable function to healthier later learning remains our interpretation. They do not require every later layer to stop using rare knowledge, nor do they establish a fixed storage location for each fact.</p><h2 class="" dir="auto" id="3ea7f391-2950-81c7-ad41-e55af80753c7">2. Engram: complementary evidence for the LLAL interpretation</h2><p class="" dir="auto" id="3ea7f391-2950-819d-80c3-dc623193c33e">To further examine this account of LLAL, we turn to Engram. <strong>If LLAL helps by establishing a useful rare-knowledge function early, could an explicit memory module support similar downstream development?</strong> Engram provides a complementary architectural intervention: it supplies n-gram memory without relying on the first routed experts to acquire the entire function through auxiliary supervision. Its placement lets us examine a consequence of the proposed LLAL mechanism—whether making this function available early matters for the experts that follow.</p><p class="" dir="auto" id="3ea7f391-2950-8159-9ebe-d165559397f4">We therefore compared two insertion positions. <strong>Before L1</strong>, the memory output is available to the entire MoE stack. <strong>Before L14</strong>, the earlier experts do not receive that output as an input. Our hypothesis was that early placement could support their learning, whereas later placement could provide an alternative predictive route without establishing a useful role for the preceding experts — which may harm early layer expert training.</p><p class="" dir="auto" id="3ea7f391-2950-818f-8fa8-c569e90e3b10">The two Engram configurations differed only in insertion position; their other settings were similar to the AdamW baseline described in the previous post.</p><table class="simple-table" dir="ltr" id="3ea7f391-2950-8129-9508-e64400d4c166"><thead class="simple-table-header"><tr dir="ltr" id="3ea7f391-2950-817e-9a64-d5ee546d7bbf"><th class="simple-table-header-color simple-table-header" id="IjkX">Configuration</th><th class="simple-table-header-color simple-table-header" id="R}]k" style="width:326px">Insertion point</th></tr></thead><tbody><tr dir="ltr" id="3ea7f391-2950-8189-a19e-d019da1c84a0"><td class="" id="IjkX">Engram-L14</td><td class="" id="R}]k" style="width:326px">Before L14 (14th MoE layer, the 15th layer)</td></tr><tr dir="ltr" id="3ea7f391-2950-81d9-a0d1-d402da568245"><td class="" id="IjkX">Engram-L1</td><td class="" id="R}]k" style="width:326px">Before L1 (first MoE layer, the second layer)</td></tr></tbody></table><h3 class="" dir="auto" id="3ea7f391-2950-8140-a2c4-e7e4c6d4a06e">Both placements provide a strong rare-knowledge component</h3><p class="" dir="auto" id="3ea7f391-2950-81f0-a43d-cb32160a6379">We first verified that the models actually use Engram for the rare-knowledge probe. On each model’s baseline-correct PopQA name targets, disabling the module gives:</p><table class="simple-table" dir="ltr" id="3ea7f391-2950-8123-9c68-d7a38f7c66db"><thead class="simple-table-header"><tr dir="ltr" id="3ea7f391-2950-81bd-addb-d9785b72de5e"><th class="simple-table-header-color simple-table-header" id="SfeR">Model</th><th class="simple-table-header-color simple-table-header" id="pDBQ">Rare NLL: original → Engram off</th><th class="simple-table-header-color simple-table-header" id="fHsF">Rare increase</th><th class="simple-table-header-color simple-table-header" id="~L]e">Common NLL: original → Engram off</th><th class="simple-table-header-color simple-table-header" id="kmb=">Common increase</th></tr></thead><tbody><tr dir="ltr" id="3ea7f391-2950-81db-b895-ed8e9f4d85f4"><td class="" id="SfeR">Engram-L14</td><td class="" id="pDBQ">0.749 → 10.462</td><td class="" id="fHsF">+9.713</td><td class="" id="~L]e">0.446 → 1.338</td><td class="" id="kmb=">+0.892</td></tr><tr dir="ltr" id="3ea7f391-2950-8158-a6cf-cb2f59028d36"><td class="" id="SfeR">Engram-L1</td><td class="" id="pDBQ">0.773 → 11.650</td><td class="" id="fHsF">+10.878</td><td class="" id="~L]e">0.449 → 1.582</td><td class="" id="kmb=">+1.133</td></tr></tbody></table><p class="" dir="auto" id="3ea7f391-2950-81fd-a126-e3be633dca6f">Both models depend strongly on Engram, with much larger effects for rare names than for common names. The frequency-binned results show a consistent decline in dependence as subject frequency increases:</p><table class="simple-table" dir="ltr" id="3ea7f391-2950-8168-85e1-ca7941c62df3"><thead class="simple-table-header"><tr dir="ltr" id="3ea7f391-2950-81f1-9f3d-de945c54bf8d"><th class="simple-table-header-color simple-table-header" id="&lt;uHj">FineWeb subject count</th><th class="simple-table-header-color simple-table-header" id="`MfD">Engram-L14: targets</th><th class="simple-table-header-color simple-table-header" id="s`_Y">Engram-L14: ΔNLL when disabled</th><th class="simple-table-header-color simple-table-header" id=":AaC">Engram-L1: targets</th><th class="simple-table-header-color simple-table-header" id="YNPa">Engram-L1: ΔNLL when disabled</th></tr></thead><tbody><tr dir="ltr" id="3ea7f391-2950-81b7-a4bc-fd66a58d0157"><td class="" id="&lt;uHj">0</td><td class="" id="`MfD">42</td><td class="" id="s`_Y">+13.047</td><td class="" id=":AaC">40</td><td class="" id="YNPa">+14.880</td></tr><tr dir="ltr" id="3ea7f391-2950-814c-a7e9-d5d1f6114c4c"><td class="" id="&lt;uHj">1–10</td><td class="" id="`MfD">91</td><td class="" id="s`_Y">+10.852</td><td class="" id=":AaC">95</td><td class="" id="YNPa">+12.942</td></tr><tr dir="ltr" id="3ea7f391-2950-8187-b189-f4dff43f30b6"><td class="" id="&lt;uHj">11–100</td><td class="" id="`MfD">164</td><td class="" id="s`_Y">+8.227</td><td class="" id=":AaC">160</td><td class="" id="YNPa">+8.651</td></tr><tr dir="ltr" id="3ea7f391-2950-812d-a992-e7309eacafc8"><td class="" id="&lt;uHj">101–1,000</td><td class="" id="`MfD">214</td><td class="" id="s`_Y">+3.132</td><td class="" id=":AaC">218</td><td class="" id="YNPa">+3.243</td></tr><tr dir="ltr" id="3ea7f391-2950-81a1-a5f4-d8ea4452b361"><td class="" id="&lt;uHj">1,001–10,000</td><td class="" id="`MfD">157</td><td class="" id="s`_Y">+1.125</td><td class="" id=":AaC">157</td><td class="" id="YNPa">+1.466</td></tr><tr dir="ltr" id="3ea7f391-2950-812f-ab95-c216ad601033"><td class="" id="&lt;uHj">&gt;10,000</td><td class="" id="`MfD">57</td><td class="" id="s`_Y">+0.251</td><td class="" id=":AaC">65</td><td class="" id="YNPa">+0.329</td></tr></tbody></table><p class="" dir="auto" id="3ea7f391-2950-8151-b350-dec9431747d1">A zero count means no occurrence in the FineWeb counts used here.</p><h3 class="" dir="auto" id="3ea7f391-2950-81cf-94c2-c4bb70779de2">Early placement supports useful contributions across subsequent experts</h3><p class="" dir="auto" id="3ea7f391-2950-81db-83ac-f8166ff1ece9"><strong>Engram-L1 produces a layer-wise functional pattern resembling the productive later layers in the LLAL models.</strong> In the factual-QA table, every measured routed branch in Engram-L1 has positive ΔNLL for both rare and common targets. These experts continue to help prediction even though Engram itself now provides a strong knowledge-related component.</p><p class="" dir="auto" id="3ea7f391-2950-8129-84da-c0210cc4bdf9">The first part of the stack makes the contrast with Engram-L14 visible. Below are the <strong>rare / common factual-QA ΔNLL</strong> values from removing each routed branch:</p><table class="simple-table" dir="ltr" id="3ea7f391-2950-8132-87aa-f75e1d3c531a"><thead class="simple-table-header"><tr dir="ltr" id="3ea7f391-2950-8126-abce-ff8a6901190d"><th class="simple-table-header-color simple-table-header" id="kzb[" style="width:211.8359375px">Branch removed</th><th class="simple-table-header-color simple-table-header" id="xC|T" style="width:232.1875px">Engram-L1: rare / common</th><th class="simple-table-header-color simple-table-header" id="|?Xi" style="width:276.9765625px">Engram-L14: rare / common</th></tr></thead><tbody><tr dir="ltr" id="3ea7f391-2950-8140-9139-da959831445d"><td class="" id="kzb[" style="width:211.8359375px">L1</td><td class="" id="xC|T" style="width:232.1875px">0.035 / 0.008</td><td class="" id="|?Xi" style="width:276.9765625px">0.009 / 0.009</td></tr><tr dir="ltr" id="3ea7f391-2950-817e-8e94-cf104a3f063d"><td class="" id="kzb[" style="width:211.8359375px">L2</td><td class="" id="xC|T" style="width:232.1875px">0.203 / 0.109</td><td class="" id="|?Xi" style="width:276.9765625px">0.000 / 0.013</td></tr><tr dir="ltr" id="3ea7f391-2950-8197-b379-cd5a088a4f1e"><td class="" id="kzb[" style="width:211.8359375px">L3</td><td class="" id="xC|T" style="width:232.1875px">0.042 / 0.007</td><td class="" id="|?Xi" style="width:276.9765625px">-0.004 / 0.017</td></tr><tr dir="ltr" id="3ea7f391-2950-8168-9a0f-f518134615ad"><td class="" id="kzb[" style="width:211.8359375px">L4</td><td class="" id="xC|T" style="width:232.1875px">0.095 / 0.120</td><td class="" id="|?Xi" style="width:276.9765625px">0.005 / 0.020</td></tr><tr dir="ltr" id="3ea7f391-2950-8109-9f75-eec562adb65c"><td class="" id="kzb[" style="width:211.8359375px">L5</td><td class="" id="xC|T" style="width:232.1875px">0.064 / 0.093</td><td class="" id="|?Xi" style="width:276.9765625px">0.025 / 0.017</td></tr><tr dir="ltr" id="3ea7f391-2950-8146-b849-f3a57c9201e7"><td class="" id="kzb[" style="width:211.8359375px">L6</td><td class="" id="xC|T" style="width:232.1875px">0.025 / 0.037</td><td class="" id="|?Xi" style="width:276.9765625px">0.039 / 0.047</td></tr><tr dir="ltr" id="3ea7f391-2950-81b7-b0c6-c362f69011c2"><td class="" id="kzb[" style="width:211.8359375px">L7</td><td class="" id="xC|T" style="width:232.1875px">0.087 / 0.152</td><td class="" id="|?Xi" style="width:276.9765625px">0.009 / 0.019</td></tr></tbody></table><p class="" dir="auto" id="3ea7f391-2950-81a2-ab1b-c294082bae26">With Engram-L14, several of the earliest branches have much weaker effects: L2 is <strong>0.000 / 0.013</strong>, L3 is <strong>−0.004 / 0.017</strong>, and L4 is <strong>0.005 / 0.020</strong>. With Engram-L1, the corresponding values are <strong>0.203 / 0.109</strong>, <strong>0.042 / 0.007</strong>, and <strong>0.095 / 0.120</strong>. Both have minor rarity selectivity. This is not a claim that every L1-placement effect exceeds every L14-placement effect. </p><p class="" dir="auto" id="3ea7f391-2950-81f8-97c4-f84b2df85e5f">This fits the proposed division of labor: the memory module supplies knowledge-related information, while subsequent experts learn to use and transform it rather than all independently acquiring the same rare knowledge. </p><h3 class="" dir="auto" id="3ea7f391-2950-814d-93e6-fa228952ead8">The functional contrast is accompanied by opposite norm dynamics</h3><p class="" dir="auto" id="3ea7f391-2950-81b1-a453-cea6cdb3ea21">The norm measurements provide a second view of the placement effect. <strong>Inserting Engram before L1 reduces norm collapse across most early MoE layers, whereas inserting it before L14 worsens the collapse relative to the baseline.</strong></p><figure class="image" data-notion-image="norm_boxplot_engram.png" dir="ltr" id="3ea7f391-2950-81ad-8023-dc4342fea546"><a href="norm_boxplot_engram.png"><img src="norm_boxplot_engram.png" style="width:703.9765625px"/></a><figcaption>Early-layer expert norms: Engram before L1 versus before L14, compared with the baseline.</figcaption></figure><p class="" dir="auto" id="3ea7f391-2950-819b-8515-db539ed662c7">The training trajectories show the same contrast. Early expert weights continue to develop with Engram-L1, while more early layers show weak norms with Engram-L14.</p><figure class="image" data-notion-image="median_dynamics_engram.png" dir="ltr" id="3ea7f391-2950-812f-9a04-c02d3739bb9e"><a href="median_dynamics_engram.png"><img src="median_dynamics_engram.png" style="width:703.9609375px"/></a><figcaption>Training trajectories for the early-layer expert weight norms.</figcaption></figure><p class="" dir="auto" id="3ea7f391-2950-8133-b2ed-fc9678497ea5">Thus, the placement effect is visible in <strong>both expert norms and expert masking</strong>: early insertion is accompanied by healthier norm dynamics and useful contributions throughout the measured factual-QA layer profile; later insertion aggravates norm collapse and leaves several of the earliest branches weakly involved. Norms alone would not establish function—the masking measurements are what connect this comparison to prediction.</p><h3 class="" dir="auto" id="3ea7f391-2950-81c8-9957-db471c604c08">Similar to LLAL, but not the same</h3><p class="" dir="auto" id="3ea7f391-2950-8168-9bf6-dd7c64d73587"><strong>The Engram results provide complementary support for this account of LLAL, rather than replacing it with a separate architectural story.</strong> In the LLAL models, previously underused early experts acquire a rare-knowledge role, while subsequent measured layers contribute to prediction without all showing the same specialization. Engram-L1 supplies an explicit memory component and is likewise accompanied by useful contributions across subsequent experts. The shared pattern is an early knowledge-related function alongside productive later-layer development—not that every expert becomes another rare-knowledge store.</p><p class="" dir="auto" id="3ea7f391-2950-8121-b771-f0ea7ffbb84a"><strong>The difference is how that early function is implemented.</strong> LLAL is a temporary training objective: after it is removed, the learned function remains in the original model. Engram is an additional architectural module that stays in the forward path. Its placement therefore matters directly: putting it before L14 does not reproduce the early functional starting point provided by LLAL or Engram-L1.</p><p class="" dir="auto" id="3ea7f391-2950-8121-83c1-fc7ddf305fa0"><strong>This architectural contrast strengthens the functional interpretation of LLAL's original stable-signal hypothesis.</strong> An early source of useful knowledge-related features may improve the learning problem faced by the layers after it. A later memory source may instead reduce the value of some preceding computations without providing those layers with the same useful input. Engram therefore supplies evidence from a different intervention for the proposed role of the early function established under LLAL. The comparison does not yet separate feature quality, training-signal stability, and changes in how subsequent layers read the residual stream.</p><p class="" dir="auto" id="3ea7f391-2950-81a4-aa28-cba9d387d908">The <a href="https://arxiv.org/abs/2601.07372">original Engram paper</a> discusses effective depth using LogitLens and CKA. This provides a connection between the training-dynamics question raised by LLAL and architectural work on explicit memory. Our placement experiments contribute norm and masking evidence to that connection, while keeping the central question focused on LLAL: <strong>how can establishing useful computation early help the remaining experts develop?</strong></p><h2 class="" dir="auto" id="3ea7f391-2950-81be-a2ed-e4f6f21d0996">3. Summary</h2><p class="" dir="auto" id="3ea7f391-2950-81eb-92c6-ef2984b577c4">Our previous post showed that LLAL can rescue undertrained early MoE experts. This follow-up identifies an important role they acquire: <strong>the model comes to rely on them for rare knowledge.</strong> The remaining layers also contribute to prediction, without each needing to reproduce the same rare-knowledge specialization. Without LLAL, the first MoE layers remain weakly used, even though useful dependence starts to emerge farther into the prefix, already around L3 in the AdamW comparison.</p><p class="" dir="auto" id="3ea7f391-2950-81c0-959d-e156ef74af7f">The Engram experiments strengthen this interpretation of LLAL through a different intervention. Both placements are strongly used for rare-knowledge prediction, but <strong>Engram-L1 supports healthier subsequent-layer development, while Engram-L14 worsens early-layer collapse</strong>. The contrast appears in expert norms and masking, providing complementary evidence that the early availability of a useful knowledge-related function matters—not simply the presence of memory somewhere in the network.</p><p class="" dir="auto" id="3ea7f391-2950-815b-a450-febf8f104d04"><strong>These findings return to the hypothesis that motivated LLAL in our previous post: giving early layers a stable learning signal may help them establish useful functions that persist beyond the auxiliary objective.</strong> The rare-knowledge analysis gives a concrete candidate for such a function, and the Engram placement experiments provide complementary support for its importance to later-layer development. Together, they suggest how LLAL's brief early supervision could produce lasting benefits: by helping previously underused experts establish a useful role on which subsequent layers can build. The remaining question is how that initial supervision becomes sustained, task-relevant learning after LLAL is removed.</p><p class="" dir="auto" id="3ea7f391-2950-818a-a791-cbb712274ce9"><strong>A note on interpretation.</strong> It is difficult to divide a neural network into submodules that are each solely responsible for one function. Our discussion of rare knowledge and a division of labor describes observed dependencies and a possible interpretation, not an exclusive assignment of functions to layers. We also do not claim that LLAL and Engram lead to similar learned representations or functional endpoints. The Engram experiments provide complementary support for the hypothesis behind LLAL, rather than evidence that the two interventions produce equivalent models.</p><p class="" dir="auto" id="3ea7f391-2950-817b-b99d-f013f727492b"><strong>Outlook: loop design.</strong> The same perspective motivates a question for looped transformers: how does the choice of repeated layers affect the establishment of early functions and the development of subsequent computation?</p><figure class="image" data-notion-image="norm_boxplot_looped_pair.png" dir="ltr" id="3ea7f391-2950-81ad-ac6b-ed2f17d4d576"><a href="norm_boxplot_looped_pair.png"><img src="norm_boxplot_looped_pair.png" style="width:665.9921875px"/></a><figcaption>Exploratory comparison; configuration details are not supplied in this note.</figcaption></figure><p class="" dir="auto" id="3ea7f391-2950-818c-9f94-f5232630eef3">We are continuing to investigate these questions with further experiments.</p><hr dir="auto" id="3ea7f391-2950-8112-90ad-d0a3ecf465c9"/><h2 class="" dir="auto" id="3ea7f391-2950-8102-ae17-fa183bc6ff0a">Citation</h2><p class="" dir="auto" id="3ea7f391-2950-8010-b62f-f07e7b190099">Please cite the original <a href="../llal/">blog.</a></p><script src="../llal/assets/prism.js"></script><link href="../llal/assets/prism.css" rel="stylesheet"/><pre class="code code-wrap" id="3ea7f391-2950-8111-a788-e743b5f04bad"><code style="white-space:pre-wrap;word-break:break-all">@misc{jin2026llalmoe,
+  title = {Mitigate Silent Expert Death In Ultra-Sparse MoE},
+  url = {https://alltoall.notion.site/save-lower-layer-moe-experts-llal},
+  author = {Jin, Hongye and Li, Linwei and Han, Xiaotian and Liu, Xin and Wen, Haoyang and Zhao, Tuo and Yin, Qingyu and Huang, Binxuan},
+  journal = {Notion Site},
+  year = {2026},
+  month = {July},
+}</code></pre><p class="" dir="auto" id="3ea7f391-2950-81e3-861d-d68f30de31c4">We are still actively investigating the training dynamics. For questions or feedback, please contact us at <a href="mailto:mooler0410@gmail.com">mooler0410@gmail.com</a>.</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
